@@ -1,9 +1,9 @@
 basic_settings:
-  site_title: Personal
+  site_title: Thatcher Imaging
   favicon_image: /images/favicon.png
 
 header_settings:
-  logo_image: 
+  logo_image:
   logo_width: 200
 
 menu_settings:
@@ -18,7 +18,7 @@ menu_settings:
       url: '/contact'
 
 footer_settings:
-  footer_tagline: A sleek, modern Jekyll theme for personal websites.
+  footer_tagline: Thatcher Imaging | Photography and Color Science
 
 hero_settings:
   overlay_opacity: 0.8
@@ -27,7 +27,7 @@ post_settings:
   grid_spacing: 10
 
 contact_settings:
-  form_action: ''
+  form_action: 'https://formspree.io/f/xdoqvkbn'
   confirmation_url: '/thanks'
   email_subject: 'Contact form submission'
   send_button_text: 'Send Message'
@@ -37,7 +37,7 @@ social_settings:
   twitter_url: ''
   instagram_url: ''
   snapchat_url: ''
-  youtube_url: ''
+  youtube_url: 'https://www.youtube.com/@thatcherfreeman'
   google-plus_url: ''
   vimeo_url: ''
   pinterest_url: ''
@@ -50,7 +50,7 @@ social_settings:
   dribbble_url: ''
   behance_url: ''
   deviantart_url: ''
-  github_url: ''
+  github_url: 'https://github.com/thatcherfreeman/'
   reddit_url: ''
   flickr_url: ''
   etsy_url: ''
@@ -58,7 +58,8 @@ social_settings:
   soundcloud_url: ''
   spotify_url: ''
   bandcamp_url: ''
-  linkedin_url: ''
+  linkedin_url: 'https://www.linkedin.com/in/thatcherfreeman/'
+  buymeacoffee_url: 'https://buymeacoffee.com/thatcherfreeman'
 
 color_settings:
   background_color: '#ffffff'
