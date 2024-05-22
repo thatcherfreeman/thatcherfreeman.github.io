@@ -18,7 +18,7 @@ menu_settings:
       url: '/contact'
 
 footer_settings:
-  footer_tagline: Thatcher Imaging | Photography and Color Science
+  footer_tagline: Thatcher Imaging | Color Science and Tools
 
 hero_settings:
   overlay_opacity: 0.8
