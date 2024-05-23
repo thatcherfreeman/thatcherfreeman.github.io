@@ -1,6 +1,6 @@
 ---
-title: Camera Profiling DCTLs
-subtitle: Color Space Transforms DCTLs
+title: Camera Profiling
+subtitle: Color Space Transform DCTLs
 description: We profiled many cameras and built transforms to integrate them into color management.
 featured_image: /images/projects/idts/idts0000.jpg
 ---
