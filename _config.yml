@@ -13,6 +13,9 @@ collections:
   projects:
     output: true
     permalink: /project/:slug
+  tutorials:
+    output: true
+    permalink: /tutorial/:slug
 
 defaults:
   -
@@ -38,6 +41,12 @@ defaults:
       type: "projects"
     values:
       layout: "project"
+  -
+    scope:
+      path: ""
+      type: "tutorials"
+    values:
+      layout: "tutorial"
 
 markdown: kramdown
 
