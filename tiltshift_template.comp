@@ -1,29 +1,28 @@
 Composition {
 	CurrentTime = 0,
 	RenderRange = { 0, 0 },
-	GlobalRange = { 0, 0 },
-	CurrentID = 43,
+	GlobalRange = { 0, 1 },
+	CurrentID = 55,
 	HiQ = true,
 	PlaybackUpdateMode = 0,
 	Version = "Fusion Studio 18.6.6 build 4",
 	SavedOutputs = 0,
 	HeldTools = 0,
-	DisabledTools = 1,
+	DisabledTools = 3,
 	LockedTools = 0,
 	AudioOffset = 0,
 	Resumable = true,
 	OutputClips = {
-		"/Users/thatcher/coding/thatcherfreeman.github.io/images/projects/utility-dctls/dctls_image.jpg",
-		"/Users/thatcher/coding/thatcherfreeman.github.io/images/projects/utility-dctls/dctls_image_thumbnail.jpg"
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/projects/idts/idts.jpg"
 	},
 	Tools = {
 		Loader1 = Loader {
 			Clips = {
 				Clip {
 					ID = "Clip1",
-					Filename = "/Users/thatcher/Desktop/Screenshot 2024-05-22 at 19.45.27.png",
+					Filename = "/Users/thatcher/Desktop/Screenshot 2024-05-22 at 20.15.51.png",
 					FormatID = "PNGFormat",
-					StartFrame = 27,
+					StartFrame = 51,
 					LengthSetManually = true,
 					TrimIn = 0,
 					TrimOut = 0,
@@ -44,10 +43,57 @@ Composition {
 			},
 			ViewInfo = OperatorInfo { Pos = { 385, 16.5 } },
 		},
+		Saver1 = Saver {
+			CtrlWZoom = false,
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/projects/idts/idts.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "Blur1",
+					Source = "Output",
+				},
+				["JpegFormat.Quality"] = Input { Value = 95, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 181.5 } },
+		},
+		Ellipse1 = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.1417, },
+				Invert = Input { Value = 1, },
+				OutputSize = Input { Value = FuID { "Custom" }, },
+				MaskWidth = Input { Value = 3840, },
+				MaskHeight = Input { Value = 2160, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				Depth = Input { Value = 3, },
+				Center = Input { Value = { 0.491705826411372, 0.502982054065645 }, },
+				Width = Input { Value = 0.775303544714636, },
+				Height = Input { Value = 0.625185161869631, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 115.5 } },
+		},
 		Transform1 = Transform {
 			Inputs = {
-				Center = Input { Value = { 0.345, 0.455 }, },
-				Size = Input { Value = 1.38, },
+				XSize = Input { Value = 1, },
+				YSize = Input { Value = 1, },
 				Input = Input {
 					SourceOp = "Loader1",
 					Source = "Output",
@@ -58,10 +104,10 @@ Composition {
 		CornerPositioner1 = CornerPositioner {
 			PassThrough = true,
 			Inputs = {
-				TopLeft = Input { Value = { 0.0604880883207438, 1.06432865731463 }, },
-				TopRight = Input { Value = { 1.07083091226031, 0.991983967935872 }, },
-				BottomLeft = Input { Value = { 0.170830912260314, -0.104809619238477 }, },
-				BottomRight = Input { Value = { 1.01394538059268, 0.0839679358717434 }, },
+				TopLeft = Input { Value = { -0.0243243243243243, 1.01408199643494 }, },
+				TopRight = Input { Value = { 1.00540540540541, 1 }, },
+				BottomLeft = Input { Value = { 0, -0.00659536541889491 }, },
+				BottomRight = Input { Value = { 1, -0.0212121212121212 }, },
 				Input = Input {
 					SourceOp = "Transform1",
 					Source = "Output",
@@ -71,8 +117,12 @@ Composition {
 		},
 		ColorGain1 = ColorGain {
 			Inputs = {
+				EffectMask = Input {
+					SourceOp = "Ellipse1",
+					Source = "Mask",
+				},
 				LockRGB = Input { Value = 1, },
-				GainRed = Input { Value = 0.64, },
+				GainRed = Input { Value = 0.8, },
 				ColorRanges = Input {
 					Value = ColorCurves {
 						Curves = {
@@ -99,81 +149,29 @@ Composition {
 					SourceOp = "CornerPositioner1",
 					Source = "Output",
 				},
-				EffectMask = Input {
-					SourceOp = "Ellipse1",
-					Source = "Mask",
-				}
 			},
 			ViewInfo = OperatorInfo { Pos = { 385, 115.5 } },
 		},
-		Ellipse1 = EllipseMask {
-			Inputs = {
-				Filter = Input { Value = FuID { "Fast Gaussian" }, },
-				SoftEdge = Input { Value = 0.1417, },
-				Invert = Input { Value = 1, },
-				OutputSize = Input { Value = FuID { "Custom" }, },
-				MaskWidth = Input { Value = 3840, },
-				MaskHeight = Input { Value = 2160, },
-				PixelAspect = Input { Value = { 1, 1 }, },
-				Depth = Input { Value = 3, },
-				Center = Input { Value = { 0.664678799384345, 0.488721804511278 }, },
-				Width = Input { Value = 0.370797075322671, },
-				Height = Input { Value = 0.625185161869631, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 275, 115.5 } },
-		},
 		Blur1 = Blur {
 			Inputs = {
+				EffectMask = Input {
+					SourceOp = "Ellipse1",
+					Source = "Mask",
+				},
 				Filter = Input { Value = FuID { "Fast Gaussian" }, },
 				XBlurSize = Input { Value = 1.6, },
 				Input = Input {
 					SourceOp = "ColorGain1",
 					Source = "Output",
 				},
-				EffectMask = Input {
-					SourceOp = "Ellipse1",
-					Source = "Mask",
-				}
 			},
 			ViewInfo = OperatorInfo { Pos = { 385, 148.5 } },
 		},
-		Saver1 = Saver {
-			CtrlWZoom = false,
-			Inputs = {
-				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
-				ProcessWhenBlendIs00 = Input { Value = 0, },
-				Clip = Input {
-					Value = Clip {
-						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/projects/utility-dctls/dctls_image.jpg",
-						FormatID = "JpegFormat",
-						Length = 0,
-						Saving = true,
-						TrimIn = 0,
-						ExtendFirst = 0,
-						ExtendLast = 0,
-						Loop = 1,
-						AspectMode = 0,
-						Depth = 1,
-						TimeCode = 0,
-						GlobalStart = -2000000000,
-						GlobalEnd = 0
-					},
-				},
-				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
-				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
-				Input = Input {
-					SourceOp = "Blur1",
-					Source = "Output",
-				},
-				["JpegFormat.Quality"] = Input { Value = 95, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 440, 181.5 } },
-		},
 		Crop1 = Crop {
+			PassThrough = true,
 			Inputs = {
-				XOffset = Input { Value = 1300, },
-				XSize = Input { Value = 968, },
-				YSize = Input { Value = 658, },
+				XSize = Input { Value = 1090, },
+				YSize = Input { Value = 826, },
 				Input = Input {
 					SourceOp = "Blur1",
 					Source = "Output",
@@ -182,6 +180,7 @@ Composition {
 			ViewInfo = OperatorInfo { Pos = { 385, 214.5 } },
 		},
 		Saver1_1 = Saver {
+			PassThrough = true,
 			Inputs = {
 				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
 				ProcessWhenBlendIs00 = Input { Value = 0, },
@@ -197,6 +196,7 @@ Composition {
 						Loop = 1,
 						AspectMode = 0,
 						Depth = 1,
+						TimeCode = 0,
 						GlobalStart = -2000000000,
 						GlobalEnd = 0
 					},
@@ -223,60 +223,60 @@ Composition {
 			Width = 1800,
 			Height = 1047,
 			ZoneInfo = {
-				AuxRight = { Expanded = true },
-				Right = { Expanded = true, },
-				Left = { Expanded = false, },
-				AuxLeft = { Expanded = true },
+				["!Right"] = {
+				},
 				["!Left"] = {
 				},
-				["!Right"] = {
-				}
+				AuxLeft = { Expanded = true },
+				Right = { Expanded = true, },
+				Left = { Expanded = false, },
+				AuxRight = { Expanded = true }
 			},
 			ViewInfo = {
-				Keyframes = { Show = false, },
-				LayoutStrip = { Show = true, RatioX = 100, },
-				Inspector = { Show = true, RatioX = 100, RatioY = 1, },
-				Effects = { Show = false, },
-				Viewer2 = { Show = false, Adjust = true, RatioX = 1, RatioY = 0.01, MRU = 0 },
-				Comments = { Show = false },
-				Clips = { Show = false, },
-				ActionStrip = { Show = true, RatioX = 100, },
-				Time = { Show = true, RatioX = 100, },
-				MediaPool = { Show = false, },
-				Nodes = { Show = true, Adjust = false, RatioX = 1, RatioY = 100, MRU = 1 },
-				Metadata = { Show = false, },
-				Viewer1 = { Show = true, RatioX = 1, RatioY = 0.01, },
-				Spline = { Show = false, },
-				OuterColumns = {
-					RatioX = 100,
-					RatioY = 1,
-				},
-				OuterLeft = {
-				},
-				CenterSplit = {
-					RatioX = 1,
-					RatioY = 100,
-				},
-				OuterRight = {
-					PixelX = 420,
-					RatioY = 100,
-				},
-				InnerColumns = {
-					RatioX = 100,
-					RatioY = 1.9989539748954,
+				Viewer1 = { Show = true, RatioY = 0.01, RatioX = 1, },
+				InnerLeft = {
 				},
 				MainSplit = {
 					RatioX = 100,
 					RatioY = 1.0010460251046,
 				},
-				InnerLeft = {
+				CenterSplit = {
+					RatioX = 1,
+					RatioY = 100,
 				},
+				Viewer2 = { Show = false, Adjust = true, RatioY = 0.01, MRU = 0, RatioX = 1, },
+				Comments = { Show = false },
+				Time = { Show = true, RatioX = 100, },
+				InnerColumns = {
+					RatioX = 100,
+					RatioY = 1.9989539748954,
+				},
+				Keyframes = { Show = false, },
+				LayoutStrip = { Show = true, RatioX = 100, },
+				Inspector = { Show = true, RatioY = 1, RatioX = 100, },
+				ActionStrip = { Show = true, RatioX = 100, },
 				InnerRight = {
+				},
+				OuterColumns = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Effects = { Show = false, },
+				Clips = { Show = false, },
+				Metadata = { Show = false, },
+				OuterLeft = {
 				},
 				ViewerSplit = {
 					RatioX = 100,
 					RatioY = 1,
-				}
+				},
+				Nodes = { Show = true, Adjust = false, RatioY = 100, MRU = 1, RatioX = 1, },
+				OuterRight = {
+					RatioY = 100,
+					PixelX = 420,
+				},
+				MediaPool = { Show = false, },
+				Spline = { Show = false, }
 			},
 			Views = ordered() {
 				Effects = MultiView {
@@ -304,7 +304,7 @@ Composition {
 						Direction = "Vertical",
 						PipeStyle = "Orthogonal",
 						RootScale = 1.06703,
-						RootOffset = { -141.415, -109.62 }
+						RootOffset = { -109.551, -109.62 }
 					}
 				},
 				Keyframes = MultiView {
@@ -323,8 +323,8 @@ Composition {
 						ShowEditBoxes = false,
 						KeyFrameView = {
 							Position = { Left = 232, Bottom = 320 },
-							ScaleX = 2.14424951267057,
-							OffsetX = -51.4619883040936,
+							ScaleX = 0.00214424951267057,
+							OffsetX = -0.0514619883040936,
 							OffsetY = 0,
 							AutoScaling = "scroll",
 							AutoSnapTo = "frame",
@@ -468,77 +468,14 @@ Composition {
 	},
 	Prefs = {
 		Comp = {
-			AutoSave = {
-				Delay = 300,
-			},
-			Paths = {
-				Map = {
-				},
-			},
-			FlowView = {
-				PipesOnTop = true,
-				Direction = 1,
-				PipeStyle = 0,
-				ShowHidden = true,
-				GridSnap = true,
-				FullToolIndicator = false
-			},
-			Metadata = {
-				SubTableMode = 0
-			},
-			LastFile = "/Users/thatcher/coding/thatcherfreeman.github.io/images/projects/2023-06-04/dctl-tutorial-square.jpg",
 			Interactive = {
 				Proxy = {
 					Scale = 1,
-					AutoScale = 1
+					AutoScale = 1,
 				},
 			},
-			FrameFormat = {
-				GuideRatio = 1.77777777777778,
-				Name = "Ultra HD 2160",
-				DepthPreview = 3,
-				Width = 3840,
-				DepthFull = 3,
-				Height = 2160,
-				DepthInteractive = 3,
-				DepthLoader = 1,
-			},
-			Unsorted = {
-				GlobalEnd = 0,
-				RenderSettings = {
-					Configs = {
-						Final = {
-							Quality = true,
-							MotionBlur = true,
-							UpdateMode = "Some",
-							UseNetwork = false,
-							SizeType = 1,
-							CustomWidth = 200,
-							CustomHeight = 160,
-							CustomAspect = true,
-							StepRender = false,
-							StepSize = 5,
-							PriorityClasses = "all",
-							ShowRenderNodes = false
-						},
-						Preview = {
-							Quality = true,
-							MotionBlur = true,
-							UpdateMode = "Some",
-							UseNetwork = false,
-							SizeType = 1,
-							CustomWidth = 200,
-							CustomHeight = 160,
-							CustomAspect = true,
-							StepRender = false,
-							StepSize = 5,
-							PriorityClasses = "all",
-							ShowRenderNodes = false
-						}
-					},
-					CurrentConfig = "Final",
-					PreviewConfig = "Preview"
-				}
+			AutoSave = {
+				Delay = 300,
 			},
 			Views = {
 				RightView = {
@@ -550,88 +487,151 @@ Composition {
 						Viewer = {
 							EnableLUTs = false,
 							LUTPlugin = "FusionViewLUT",
-							NearZ = 0,
+							FitMarginY = 0,
 							FitMarginX = 0,
 							FitMarginType = 0,
 							FarZ = -1000,
-							FitMarginY = 0
+							NearZ = 0
 						}
 					},
 				},
+				LeftView = {
+					Viewer = {
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GLWaveformViewer",
+						GLWaveformViewer = {
+							AutoBounds = false,
+							Layout = { -435, 15, -15, 413 }
+						}
+					},
+				},
+				View1 = {
+					PrevCtrlInactiveColor = 4278255360,
+					PickW = 1,
+					PickH = 1,
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					PrevCtrlActiveColor = 4278190335,
+					AlwaysOnTop = true,
+					FullScreen = false
+				},
 				Defaults = {
+					View3D = {
+						Options = {
+							ShowUVTangentVectors = false
+						},
+						TextureDepth = "int8"
+					},
 					MaterialViewer = {
 						Options = {
 							TextureDepth = "int8"
 						},
 					},
-					View3D = {
-						Options = {
-							ShowUVTangentVectors = false,
-						},
-						TextureDepth = "int8",
-					},
-				},
-				LeftView = {
-					SideB = {
-						PrevCtrlInactiveColor = 4278255360,
-						PickW = 1,
-						PickH = 1,
-						PrevCtrlActiveColor = 4278190335,
-						Viewer = {
-							EnableLUTs = false,
-							LUTPlugin = "FusionViewLUT",
-							NearZ = 0,
-							FitMarginX = 0,
-							FitMarginType = 0,
-							FarZ = -1000,
-							FitMarginY = 0
-						}
-					},
-					Viewer = {
-					},
-					SubView = {
-						ID = "GLWaveformViewer",
-						Navigator = false,
-						Magnifier = false,
-						Enabled = false,
-						GLWaveformViewer = {
-							AutoBounds = false,
-							Layout = { -435, 15, -15, 413 }
-						}
-					}
-				},
-				View1 = {
-					PickW = 1,
-					PrevCtrlInactiveColor = 4278255360,
-					FullScreen = false,
-					AlwaysOnTop = true,
-					SideB = {
-						PrevCtrlInactiveColor = 4278255360,
-						PickW = 1,
-						PickH = 1,
-						PrevCtrlActiveColor = 4278190335,
-						Viewer = {
-							EnableLUTs = false,
-							LUTPlugin = "FusionViewLUT",
-							NearZ = 0,
-							FitMarginX = 0,
-							FitMarginType = 0,
-							FarZ = -1000,
-							FitMarginY = 0
-						}
-					},
-					PrevCtrlActiveColor = 4278190335,
-					PickH = 1
 				},
 				View2 = {
 					PickH = 1,
+					AlwaysOnTop = true,
 					FullScreen = false,
-					PickW = 1,
-					AlwaysOnTop = true
+					PickW = 1
+				}
+			},
+			Paths = {
+				Map = {
 				},
+			},
+			FrameFormat = {
+				Name = "Ultra HD 2160",
+				Width = 3840,
+				Height = 2160,
+				GuideRatio = 1.77777777777778,
+				DepthFull = 3,
+				DepthPreview = 3,
+				DepthInteractive = 3,
+				DepthLoader = 1,
+			},
+			LastFile = "/Users/thatcher/coding/thatcherfreeman.github.io/images/projects/2023-06-04/dctl-tutorial-square.jpg",
+			Unsorted = {
+				GlobalEnd = 1,
+				RenderSettings = {
+					Configs = {
+						Preview = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						},
+						Final = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						}
+					},
+					PreviewConfig = "Preview",
+					CurrentConfig = "Final"
+				}
+			},
+			FlowView = {
+				Direction = 1,
+				GridSnap = true,
+				PipesOnTop = true,
+				ShowHidden = true,
+				PipeStyle = 0,
+				FullToolIndicator = false
 			},
 			QuickTime = {
 			},
+			Metadata = {
+				SubTableMode = 0
+			}
 		}
 	},
 }
