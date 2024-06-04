@@ -4,7 +4,7 @@ date: 2023-06-04 11:00:00
 subtitle: DCTL coding masterclass
 description: Tutorial series explaining everything you need to know about how to code up your own DCTLs, for free.
 featured_image: /images/tutorials/dctl-tutorial/dctl-tutorial-square0000.jpg
-tags: programming class plugin davinci resolve fusion
+tags: programming classes plugins davinci resolve fusion tutorials
 ---
 
 ## The Tutorials

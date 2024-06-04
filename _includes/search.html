@@ -23,9 +23,9 @@
         resultsContainer: document.getElementById("results-container"),
         json: "/search.json",
         searchResultTemplate:
-            '<div><h3><a href="{url}">{title}</a></h3><span>{subtitle}</span></div>',
+            '<div><b><a href="{url}">{title}</a></b><br><span>{category} | {subtitle}</span></div><br>',
         noResultsText: "No results found",
-        fuzzy: true,
+        fuzzy: false,
         limit: 10,
     });
 </script>
