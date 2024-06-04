@@ -1,0 +1,31 @@
+<!-- Html Elements for Search -->
+<div class="search-form">
+    <div class="search-form__item">
+        <label class="search-form__label">Search</label>
+        <input
+            type="text"
+            name="Search"
+            placeholder="Utility DCTLs"
+            id="search-input"
+            class="search-form__input"
+        />
+        <ul id="results-container" class="search-form__output"></ul>
+    </div>
+</div>
+
+<!-- Script pointing to search-script.js -->
+<script src="/js/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+<!-- Configuration -->
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        json: "/search.json",
+        searchResultTemplate:
+            '<div><h3><a href="{url}">{title}</a></h3><span>{subtitle}</span></div>',
+        noResultsText: "No results found",
+        fuzzy: true,
+        limit: 10,
+    });
+</script>

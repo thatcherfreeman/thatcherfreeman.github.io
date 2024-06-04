@@ -1,0 +1,37 @@
+---
+layout: none
+---
+[
+  {% for post in site.projects %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "subtitle" : "{{ post.subtitle | escape }}",
+      "description": "{{ post.description | escape }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  {% if site.projects.size != 0 and site.posts.size != 0 %}
+      ,
+  {% endif %}
+  {% for post in site.posts %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "description": "{{ post.description | escape }}",
+      "tags"     : "{{ post.tags | join: ', ' | escape }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  {% if site.tutorials.size != 0 %}
+    {% if site.posts.size != 0 or site.projects.size != 0 %}
+        ,
+    {% endif %}
+{% endif %}
+  {% for post in site.tutorials %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "subtitle" : "{{ post.subtitle | escape }}",
+      "description": "{{ post.description | escape }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

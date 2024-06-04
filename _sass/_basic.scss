@@ -302,11 +302,11 @@ body.loading {
 		@include transition(all 0.4s ease-in-out 1s);
 	}
 
-	.page {
-		opacity: 0;
-		visibility: hidden;
-		@include transition(all 0.4s ease-in-out, transform 0s ease-in-out 0.4s);
-	}
+	// .page {
+	// 	opacity: 0;
+	// 	visibility: hidden;
+	// 	@include transition(all 0.4s ease-in-out, transform 0s ease-in-out 0.4s);
+	// }
 
 	section:not(.hero) {
 		@include translate(0,30px);
