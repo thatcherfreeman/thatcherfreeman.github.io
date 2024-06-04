@@ -4,6 +4,7 @@ date: 2023-06-04 11:00:00
 subtitle: Comedy and Drama sketches
 description: Every year, we shoot and publish a short film for your enjoyment.
 featured_image: /images/projects/short-films/first_message_thumbnail0000.jpg
+tags: narrative drama cinema movie sketch skit
 ---
 
 ## Short Films

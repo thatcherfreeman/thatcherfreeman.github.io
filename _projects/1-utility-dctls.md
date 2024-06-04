@@ -3,6 +3,7 @@ title: Utility DCTLs
 subtitle: Library of useful DCTLs and Fuses
 description: This is a repository of DCTLs and Fuses that we have developed and released open source.
 featured_image: /images/projects/utility-dctls/dctls_image_thumbnail0000.jpg
+tags: dctl tools fuse davinci resolve fusion plugin free open source github
 ---
 
 ## Utility DCTLs and Fuses

@@ -3,6 +3,7 @@ title: Camera Profiling
 subtitle: Color Space Transform DCTLs
 description: We profiled many cameras and built transforms to integrate them into color management.
 featured_image: /images/projects/idts/idts0000.jpg
+tags: color management idt odt dwg aces log gamut chart regression
 ---
 
 ## Camera Profiling DCTLs
