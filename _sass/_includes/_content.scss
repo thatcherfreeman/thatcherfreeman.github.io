@@ -87,6 +87,7 @@
 		ul, ol {
 			max-width: 100%;
 			padding-left: 25px;
+			margin: 0;
 		}
 	}
 
@@ -168,7 +169,7 @@
 				font-size: $p-medium;
 			}
 		}
-		
+
 		tr {
 
 			&:nth-child(2n) {
@@ -232,7 +233,7 @@
 					text-align: center;
 					color: $text-light-color;
 				}
-				
+
 				p {
 					display: inline;
 					max-width: 100%;
