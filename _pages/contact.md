@@ -2,7 +2,7 @@
 title: Contact Us
 subtitle:
 description: Let us know about your project.
-featured_image: /images/demo/contact.jpg
+featured_image: /images/contact.jpg
 ---
 
 Have any questions, feedback, or want to collaborate on a project? Tell us about it!

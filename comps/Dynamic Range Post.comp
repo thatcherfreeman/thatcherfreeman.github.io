@@ -2,20 +2,166 @@ Composition {
 	CurrentTime = 0,
 	RenderRange = { 0, 0 },
 	GlobalRange = { 0, 0 },
-	CurrentID = 18,
+	CurrentID = 29,
 	HiQ = true,
 	PlaybackUpdateMode = 0,
 	Version = "Fusion Studio 18.6.6 build 4",
-	SavedOutputs = 0,
+	SavedOutputs = 1,
 	HeldTools = 0,
 	DisabledTools = 0,
 	LockedTools = 0,
 	AudioOffset = 0,
 	Resumable = true,
 	OutputClips = {
-		"/Users/thatcher/coding/thatcherfreeman.github.io/comps/Dyanmic Range Post"
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/dynamic_range/dynamic_range_header.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/dynamic_range/dynamic_range_thumb.jpg"
 	},
 	Tools = {
+		Background2 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 0, },
+				Width = Input { Value = 3840, },
+				Height = Input { Value = 2160, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 16.5 } },
+		},
+		DCTLInterpreter1_1_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Exposure Chart.dctl", },
+				IntSlider0 = Input { Value = 22, },
+				CheckBox0 = Input { Value = 0, },
+				CheckBox1 = Input { Value = 0, },
+				ImageInput = Input {
+					SourceOp = "Background2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 16.5 } },
+		},
+		ColorSpaceTransform2 = ColorSpaceTransform {
+			Inputs = {
+				OutputGamma = Input { Value = FuID { "ACESCCT_GAMMA" }, },
+				ToneMappingMethod = Input { Value = FuID { "TM_NONE" }, },
+				SrcLumMax = Input { Disabled = true, },
+				DstLumMax = Input { Disabled = true, },
+				Input = Input {
+					SourceOp = "DCTLInterpreter1_1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 49.5 } },
+		},
+		DCTLInterpreter1_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Exposure Chart.dctl", },
+				FloatSlider0 = Input { Value = 0.0078125, },
+				CheckBox0 = Input { Value = 0, },
+				CheckBox1 = Input { Value = 0, },
+				ImageInput = Input {
+					SourceOp = "Background2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 49.5 } },
+		},
+		Polygon1_1 = PolylineMask {
+			DrawMode = "InsertAndModify",
+			DrawMode2 = "InsertAndModify",
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				MaskWidth = Input { Value = 3840, },
+				MaskHeight = Input { Value = 2160, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Polyline = Input {
+					SourceOp = "Polygon1_1Polyline",
+					Source = "Value",
+				},
+				Polyline2 = Input {
+					Value = Polyline {
+					},
+					Disabled = true,
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 115.5 } },
+		},
+		Polygon1_1Polyline = BezierSpline {
+			SplineColor = { Red = 173, Green = 255, Blue = 47 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, Flags = { Linear = true, LockedY = true }, Value = Polyline {
+						Closed = true,
+						Points = {
+							{ Linear = true, X = -0.584876543209877, Y = 0.149011116165779, LX = 0.012345679012346, LY = -0.255946092219869, RX = 0.426974564465777, RY = 0 },
+							{ Linear = true, X = 0.696047150187455, Y = 0.149011116165779, LX = -0.426974564465777, LY = 0, RX = -0.0123655109678347, RY = -0.246686832960609 },
+							{ Linear = true, X = 0.658950617283951, Y = -0.591049382716049, LX = 0.0123655109678347, LY = 0.246686832960609, RX = -0.402263374485597, RY = -0.00925925925925926 },
+							{ Linear = true, X = -0.547839506172839, Y = -0.618827160493827, LX = 0.402263374485597, LY = 0.00925925925925926, RX = -0.012345679012346, RY = 0.255946092219869 }
+						}
+					} }
+			}
+		},
+		DCTLInterpreter2_1 = Fuse.DCTLInterpreter {
+			CtrlWZoom = false,
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Quantize.dctl", },
+				IntSlider0 = Input { Value = 4, },
+				ComboBox0 = Input { Value = 2, },
+				ImageInput = Input {
+					SourceOp = "DCTLInterpreter1_1",
+					Source = "Output",
+				},
+				EffectMask = Input {
+					SourceOp = "Polygon1_1",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 115.5 } },
+		},
+		ColorSpaceTransform1_1 = ColorSpaceTransform {
+			Inputs = {
+				OutputGamma = Input { Value = FuID { "SRGB_GAMMA" }, },
+				ToneMappingMethod = Input { Value = FuID { "TM_NONE" }, },
+				SrcLumMax = Input { Disabled = true, },
+				DstLumMax = Input { Disabled = true, },
+				Input = Input {
+					SourceOp = "DCTLInterpreter2_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 148.5 } },
+		},
+		Saver1_1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/dynamic_range/dynamic_range_header.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorSpaceTransform1_1",
+					Source = "Output",
+				},
+				["JpegFormat.Quality"] = Input { Value = 97, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 181.5 } },
+		},
 		Background1 = Background {
 			Inputs = {
 				GlobalOut = Input { Value = 0, },
@@ -38,6 +184,43 @@ Composition {
 				},
 			},
 			ViewInfo = OperatorInfo { Pos = { 330, 49.5 } },
+		},
+		Polygon1 = PolylineMask {
+			DrawMode = "InsertAndModify",
+			DrawMode2 = "InsertAndModify",
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				MaskWidth = Input { Value = 3840, },
+				MaskHeight = Input { Value = 2160, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Polyline = Input {
+					SourceOp = "Polygon1Polyline",
+					Source = "Value",
+				},
+				Polyline2 = Input {
+					Value = Polyline {
+					},
+					Disabled = true,
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 82.5 } },
+		},
+		Polygon1Polyline = BezierSpline {
+			SplineColor = { Red = 173, Green = 255, Blue = 47 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, Flags = { Linear = true, LockedY = true }, Value = Polyline {
+						Closed = true,
+						Points = {
+							{ Linear = true, X = -0.584876543209877, Y = 0.00198661208176523, LX = 0.0123456790123457, LY = -0.206937924191864, RX = 0.426974564465777, RY = 0 },
+							{ Linear = true, X = 0.696047150187455, Y = 0.00198661208176523, LX = -0.426974564465777, LY = 0, RX = -0.0123655109678348, RY = -0.197678664932605 },
+							{ Linear = true, X = 0.658950617283951, Y = -0.591049382716049, LX = 0.0123655109678348, LY = 0.197678664932605, RX = -0.402263374485597, RY = -0.00925925925925926 },
+							{ Linear = true, X = -0.547839506172839, Y = -0.618827160493827, LX = 0.402263374485597, LY = 0.00925925925925926, RX = -0.0123456790123457, RY = 0.206937924191864 }
+						}
+					} }
+			}
 		},
 		DCTLInterpreter2 = Fuse.DCTLInterpreter {
 			Inputs = {
@@ -103,13 +286,12 @@ Composition {
 			ViewInfo = OperatorInfo { Pos = { 330, 181.5 } },
 		},
 		Saver1 = Saver {
-			CtrlWZoom = false,
 			Inputs = {
 				ProcessWhenBlendIs00 = Input { Value = 0, },
 				Clip = Input {
 					Value = Clip {
-						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/comps/Dyanmic Range Post",
-						FormatID = "OpenEXRFormat",
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/dynamic_range/dynamic_range_thumb.jpg",
+						FormatID = "JpegFormat",
 						Length = 0,
 						Saving = true,
 						TrimIn = 0,
@@ -122,52 +304,16 @@ Composition {
 						GlobalEnd = 0
 					},
 				},
-				OutputFormat = Input { Value = FuID { "OpenEXRFormat" }, },
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
 				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
 				Input = Input {
 					SourceOp = "ColorSpaceTransform1",
 					Source = "Output",
 				},
 				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				["JpegFormat.Quality"] = Input { Value = 97, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 330, 214.5 } },
-		},
-		Polygon1 = PolylineMask {
-			DrawMode = "InsertAndModify",
-			DrawMode2 = "InsertAndModify",
-			Inputs = {
-				Filter = Input { Value = FuID { "Fast Gaussian" }, },
-				MaskWidth = Input { Value = 3840, },
-				MaskHeight = Input { Value = 2160, },
-				PixelAspect = Input { Value = { 1, 1 }, },
-				ClippingMode = Input { Value = FuID { "None" }, },
-				Polyline = Input {
-					SourceOp = "Polygon1Polyline",
-					Source = "Value",
-				},
-				Polyline2 = Input {
-					Value = Polyline {
-					},
-					Disabled = true,
-				},
-			},
-			ViewInfo = OperatorInfo { Pos = { 440, 82.5 } },
-		},
-		Polygon1Polyline = BezierSpline {
-			SplineColor = { Red = 173, Green = 255, Blue = 47 },
-			CtrlWZoom = false,
-			NameSet = true,
-			KeyFrames = {
-				[0] = { 0, Flags = { Linear = true, LockedY = true }, Value = Polyline {
-						Closed = true,
-						Points = {
-							{ Linear = true, X = -0.584876543209877, Y = 0.00198661208176523, LX = 0.0123456790123457, LY = -0.206937924191864, RX = 0.426974564465777, RY = 0 },
-							{ Linear = true, X = 0.696047150187455, Y = 0.00198661208176523, LX = -0.426974564465777, LY = 0, RX = -0.0123655109678348, RY = -0.197678664932605 },
-							{ Linear = true, X = 0.658950617283951, Y = -0.591049382716049, LX = 0.0123655109678348, LY = 0.197678664932605, RX = -0.402263374485597, RY = -0.00925925925925926 },
-							{ Linear = true, X = -0.547839506172839, Y = -0.618827160493827, LX = 0.402263374485597, LY = 0.00925925925925926, RX = -0.0123456790123457, RY = 0.206937924191864 }
-						}
-					} }
-			}
 		}
 	},
 	Frames = {
@@ -262,7 +408,7 @@ Composition {
 						Direction = "Vertical",
 						PipeStyle = "Orthogonal",
 						RootScale = 1,
-						RootOffset = { 37.3333, -80.697 }
+						RootOffset = { -73.3333, -2.51532 }
 					}
 				},
 				Keyframes = MultiView {
@@ -463,6 +609,40 @@ Composition {
 			},
 			Unsorted = {
 				GlobalEnd = 0,
+				RenderSettings = {
+					Configs = {
+						Final = {
+							Quality = true,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							SizeType = 1,
+							CustomWidth = 200,
+							CustomHeight = 160,
+							CustomAspect = true,
+							StepRender = false,
+							StepSize = 5,
+							PriorityClasses = "all",
+							ShowRenderNodes = false
+						},
+						Preview = {
+							Quality = true,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							SizeType = 1,
+							CustomWidth = 200,
+							CustomHeight = 160,
+							CustomAspect = true,
+							StepRender = false,
+							StepSize = 5,
+							PriorityClasses = "all",
+							ShowRenderNodes = false
+						}
+					},
+					CurrentConfig = "Final",
+					PreviewConfig = "Preview"
+				}
 			},
 			Views = {
 				RightView = {
@@ -513,6 +693,20 @@ Composition {
 					},
 					Viewer = {
 					},
+					SubView = {
+						Enabled = true,
+						ID = "GLWaveformViewer",
+						Navigator = false,
+						Magnifier = false,
+						GLHistogramViewer = {
+							AutoBounds = false,
+							Layout = { -561, 15, -15, 483 }
+						},
+						GLWaveformViewer = {
+							AutoBounds = false,
+							Layout = { -1058, 30, -30, 890 }
+						}
+					}
 				},
 				View1 = {
 					SideB = {
