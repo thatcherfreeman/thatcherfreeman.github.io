@@ -1,0 +1,1641 @@
+Composition {
+	CurrentTime = 46,
+	RenderRange = { 46, 46 },
+	GlobalRange = { 0, 1000 },
+	CurrentID = 141,
+	HiQ = true,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion Studio 18.6.6 build 4",
+	SavedOutputs = 1,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/ektachrome_channel_red.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_sample_inverted.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_sample.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/fourway_comparison.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_inverted_channel_blue.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/ektachrome_channel_green.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/ektachrome_sample.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/ektachrome_channel_blue.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_inverted_channel_green.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_sample_inverted_offset_up.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_sample_3513_lut.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_inverted_channel_red.jpg"
+	},
+	Tools = {
+		Loader3 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "/Users/thatcher/Pictures/2024/Ektachrome Nanomorph Roll/Small EXRs/small_scan_0012.exr",
+					FormatID = "OpenEXRFormat",
+					Length = 38,
+					LengthSetManually = true,
+					TrimIn = 23,
+					TrimOut = 24,
+					ExtendFirst = 0,
+					ExtendLast = 135,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 1,
+					TimeCode = 0,
+					GlobalStart = 46,
+					GlobalEnd = 182
+				}
+			},
+			Inputs = {
+				Depth = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["Clip1.OpenEXRFormat.RedName"] = Input { Value = FuID { "R" }, },
+				["Clip1.OpenEXRFormat.GreenName"] = Input { Value = FuID { "G" }, },
+				["Clip1.OpenEXRFormat.BlueName"] = Input { Value = FuID { "B" }, },
+				["Clip1.OpenEXRFormat.AlphaName"] = Input { Value = FuID { "A" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 82.5 } },
+		},
+		Loader1 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "/Users/thatcher/Pictures/2023/Portra 400 Tests Round 2/Small EXRs/blended_scan_small_0046.exr",
+					FormatID = "OpenEXRFormat",
+					Length = 111,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 110,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 1,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 110
+				}
+			},
+			Inputs = {
+				Depth = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["Clip1.OpenEXRFormat.RedName"] = Input { Value = FuID { "R" }, },
+				["Clip1.OpenEXRFormat.GreenName"] = Input { Value = FuID { "G" }, },
+				["Clip1.OpenEXRFormat.BlueName"] = Input { Value = FuID { "B" }, },
+				["Clip1.OpenEXRFormat.AlphaName"] = Input { Value = FuID { "A" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 16.5 } },
+		},
+		ColorMatrix1_2 = CustomColorMatrix {
+			Inputs = {
+				Matrix = Input {
+					Value = MatrixTable {
+						NumEntries = 54,
+						Type = 10,
+						Offset = 0,
+						Minimum = 0,
+						Maximum = 1,
+						MinimumValue = 0,
+						MaximumValue = 1,
+						StartSlope = 1,
+						EndSlope = 1,
+						StartIn = 0,
+						EndIn = 1,
+						Table = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 }
+					},
+				},
+				Input = Input {
+					SourceOp = "PipeRouter1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 511.5 } },
+		},
+		Saver2_1_2 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/ektachrome_channel_red.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorMatrix1_2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 544.5 } },
+		},
+		DCTLInterpreter1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Effects/Film Curve.dctl", },
+				FloatSlider0 = Input { Value = 3, },
+				FloatSlider1 = Input { Value = 3, },
+				FloatSlider2 = Input { Value = 3, },
+				FloatSlider3 = Input { Value = 0, },
+				FloatSlider4 = Input { Value = 0, },
+				FloatSlider5 = Input { Value = 0, },
+				ValueBox3 = Input { Value = 0.1, },
+				ValueBox4 = Input { Value = 0.138, },
+				ImageInput = Input {
+					SourceOp = "removedmin",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 550, 148.5 } },
+		},
+		ColorGain1 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GammaRed = Input { Value = 2.2, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 550, 181.5 } },
+		},
+		Saver1_2_1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_sample_inverted.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorGain1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 379.5 } },
+		},
+		MergeAdjacent3 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Saver1_2_1_1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Saver1_2_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 330, 445.5 } },
+		},
+		ColorGain2 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GammaRed = Input { Value = 2.2, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "Loader1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 49.5 } },
+		},
+		Saver1_2 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_sample.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorGain2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 493, 379.5 } },
+		},
+		MergeAdjacent4 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Saver1_2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Saver1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 550, 445.5 } },
+		},
+		MergeAdjacent5 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MergeAdjacent3",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MergeAdjacent4",
+					Source = "Output",
+				},
+				Direction = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 330, 478.5 } },
+		},
+		Saver1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/fourway_comparison.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "MergeAdjacent5",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 330, 511.5 } },
+		},
+		ColorMatrix1_1_1 = CustomColorMatrix {
+			Inputs = {
+				Matrix = Input {
+					Value = MatrixTable {
+						NumEntries = 54,
+						Type = 10,
+						Offset = 0,
+						Minimum = 0,
+						Maximum = 1,
+						MinimumValue = 0,
+						MaximumValue = 1,
+						StartSlope = 1,
+						EndSlope = 1,
+						StartIn = 0,
+						EndIn = 1,
+						Table = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 }
+					},
+				},
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 478.5 } },
+		},
+		Saver2_1_1_1 = Saver {
+			CtrlWZoom = false,
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_inverted_channel_blue.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorMatrix1_1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 511.5 } },
+		},
+		ColorMatrix1_1_2 = CustomColorMatrix {
+			Inputs = {
+				Matrix = Input {
+					Value = MatrixTable {
+						NumEntries = 54,
+						Type = 10,
+						Offset = 0,
+						Minimum = 0,
+						Maximum = 1,
+						MinimumValue = 0,
+						MaximumValue = 1,
+						StartSlope = 1,
+						EndSlope = 1,
+						StartIn = 0,
+						EndIn = 1,
+						Table = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 }
+					},
+				},
+				Input = Input {
+					SourceOp = "PipeRouter1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, 511.5 } },
+		},
+		Saver2_1_2_1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/ektachrome_channel_green.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorMatrix1_1_2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, 544.5 } },
+		},
+		RotateImage1 = Fuse.RotateImage {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Loader3",
+					Source = "Output",
+				},
+				Rotation = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 115.5 } },
+		},
+		Crop2 = Crop {
+			Inputs = {
+				XSize = Input { Value = 3752, },
+				YSize = Input { Value = 2429, },
+				Input = Input {
+					SourceOp = "RotateImage1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 148.5 } },
+		},
+		Transform1 = Transform {
+			Inputs = {
+				FlipHoriz = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "Crop2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 181.5 } },
+		},
+		Scale1 = Scale {
+			Inputs = {
+				LockXY = Input { Value = 0, },
+				XSize = Input { Value = 1.5, },
+				HiQOnly = Input { Value = 0, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				Input = Input {
+					SourceOp = "Transform1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 214.5 } },
+		},
+		Resize2 = BetterResize {
+			Inputs = {
+				Width = Input { Value = 3225, },
+				Height = Input { Value = 1392, },
+				KeepAspect = Input { Value = 1, },
+				HiQOnly = Input { Value = 0, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				Input = Input {
+					SourceOp = "Scale1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 247.5 } },
+		},
+		Crop1 = Crop {
+			Inputs = {
+				XOffset = Input { Value = 589, },
+				XSize = Input { Value = 2048, },
+				YSize = Input { Value = 1392, },
+				KeepCentered = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "Resize2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 280.5 } },
+		},
+		ColorGain2_1 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GammaRed = Input { Value = 2.2, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "Crop1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 313.5 } },
+		},
+		Saver1_1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/ektachrome_sample.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorGain2_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 660, 379.5 } },
+		},
+		PipeRouter1_1 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "Saver1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 825, 478.5 } },
+		},
+		ColorMatrix1_1_1_1 = CustomColorMatrix {
+			Inputs = {
+				Matrix = Input {
+					Value = MatrixTable {
+						NumEntries = 54,
+						Type = 10,
+						Offset = 0,
+						Minimum = 0,
+						Maximum = 1,
+						MinimumValue = 0,
+						MaximumValue = 1,
+						StartSlope = 1,
+						EndSlope = 1,
+						StartIn = 0,
+						EndIn = 1,
+						Table = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 }
+					},
+				},
+				Input = Input {
+					SourceOp = "PipeRouter1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 511.5 } },
+		},
+		Saver2_1_2_2 = Saver {
+			CtrlWZoom = false,
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/ektachrome_channel_blue.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorMatrix1_1_1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 544.5 } },
+		},
+		offsetup_1 = Custom {
+			NameSet = true,
+			Inputs = {
+				NumberIn1 = Input { Value = 0.225, },
+				LUTIn1 = Input {
+					SourceOp = "offsetup_1LUTIn1",
+					Source = "Value",
+				},
+				LUTIn2 = Input {
+					SourceOp = "offsetup_1LUTIn2",
+					Source = "Value",
+				},
+				LUTIn3 = Input {
+					SourceOp = "offsetup_1LUTIn3",
+					Source = "Value",
+				},
+				LUTIn4 = Input {
+					SourceOp = "offsetup_1LUTIn4",
+					Source = "Value",
+				},
+				RedExpression = Input { Value = "c1+n1", },
+				GreenExpression = Input { Value = "c1+n1", },
+				BlueExpression = Input { Value = "c1+n1", },
+				Image1 = Input {
+					SourceOp = "times_minus0_5",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 330, 148.5 } },
+		},
+		offsetup_1LUTIn1 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 204, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+		},
+		offsetup_1LUTIn2 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 0, Green = 204, Blue = 0 },
+			CtrlWZoom = false,
+		},
+		offsetup_1LUTIn3 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 0, Green = 0, Blue = 204 },
+			CtrlWZoom = false,
+		},
+		offsetup_1LUTIn4 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 204, Green = 204, Blue = 204 },
+			CtrlWZoom = false,
+		},
+		lut2383_1 = OCIOFileTransform {
+			NameSet = true,
+			Inputs = {
+				LUTFile = Input { Value = "/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/Rec709 Kodak 2383 D60.cube", },
+				Interpolation = Input { Value = FuID { "Tetra" }, },
+				Input = Input {
+					SourceOp = "offsetup_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 330, 181.5 } },
+		},
+		ColorMatrix1_1 = CustomColorMatrix {
+			Inputs = {
+				Matrix = Input {
+					Value = MatrixTable {
+						NumEntries = 54,
+						Type = 10,
+						Offset = 0,
+						Minimum = 0,
+						Maximum = 1,
+						MinimumValue = 0,
+						MaximumValue = 1,
+						StartSlope = 1,
+						EndSlope = 1,
+						StartIn = 0,
+						EndIn = 1,
+						Table = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 }
+					},
+				},
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 478.5 } },
+		},
+		Saver2_1_1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_inverted_channel_green.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorMatrix1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 511.5 } },
+		},
+		LinearExposure1 = Fuse.LinearExposure {
+			Inputs = {
+				ExpAdjustment = Input { Value = -0.9, },
+				Input = Input {
+					SourceOp = "removedmin",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 247.5 } },
+		},
+		DCTLInterpreter1_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Effects/Film Curve.dctl", },
+				FloatSlider0 = Input { Value = 3, },
+				FloatSlider1 = Input { Value = 3, },
+				FloatSlider2 = Input { Value = 3, },
+				FloatSlider3 = Input { Value = 0, },
+				FloatSlider4 = Input { Value = 0, },
+				FloatSlider5 = Input { Value = 0, },
+				ValueBox3 = Input { Value = 0.1, },
+				ValueBox4 = Input { Value = 0.138, },
+				ImageInput = Input {
+					SourceOp = "LinearExposure1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 280.5 } },
+		},
+		ColorGain1_1 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GammaRed = Input { Value = 2.2, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 313.5 } },
+		},
+		Saver2 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_sample_inverted_offset_up.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorGain1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 346.5 } },
+		},
+		removedmin = ColorGain {
+			NameSet = true,
+			Inputs = {
+				GainRed = Input { Value = 2.32574365653418, },
+				GainGreen = Input { Value = 5.90981620471603, },
+				GainBlue = Input { Value = 11.5074798619102, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "Loader1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 49.5 } },
+		},
+		log10 = Fuse.DCTLInterpreter {
+			NameSet = true,
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Operations/Log Function.dctl", },
+				ImageInput = Input {
+					SourceOp = "removedmin",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 82.5 } },
+		},
+		times_minus0_5 = Fuse.DCTLInterpreter {
+			NameSet = true,
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Operations/Multiplication Function.dctl", },
+				ValueBox0 = Input { Value = -0.5, },
+				ImageInput = Input {
+					SourceOp = "log10",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 115.5 } },
+		},
+		offsetup = Custom {
+			NameSet = true,
+			Inputs = {
+				NumberIn1 = Input { Value = 0.291, },
+				LUTIn1 = Input {
+					SourceOp = "offsetupLUTIn1",
+					Source = "Value",
+				},
+				LUTIn2 = Input {
+					SourceOp = "offsetupLUTIn2",
+					Source = "Value",
+				},
+				LUTIn3 = Input {
+					SourceOp = "offsetupLUTIn3",
+					Source = "Value",
+				},
+				LUTIn4 = Input {
+					SourceOp = "offsetupLUTIn4",
+					Source = "Value",
+				},
+				RedExpression = Input { Value = "c1+n1", },
+				GreenExpression = Input { Value = "c1+n1", },
+				BlueExpression = Input { Value = "c1+n1", },
+				Image1 = Input {
+					SourceOp = "times_minus0_5",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 148.5 } },
+		},
+		offsetupLUTIn1 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 204, Green = 0, Blue = 0 },
+		},
+		offsetupLUTIn2 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 0, Green = 204, Blue = 0 },
+		},
+		offsetupLUTIn3 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 0, Green = 0, Blue = 204 },
+		},
+		offsetupLUTIn4 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 204, Green = 204, Blue = 204 },
+			CtrlWZoom = false,
+		},
+		ColorGain3 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				SaturationRed = Input { Value = 1.1, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "offsetup",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 181.5 } },
+		},
+		ColorCorrector1 = ColorCorrector {
+			Inputs = {
+				WheelHue1 = Input { Value = 0.045, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.4, 0.2 },
+									{ 0.6, 0 },
+									{ 1, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0, 0 },
+									{ 0.4, 0 },
+									{ 0.6, 0.2 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				HistogramIgnoreTransparent = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "ColorGain3",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 214.5 } },
+		},
+		lut2383 = OCIOFileTransform {
+			NameSet = true,
+			Inputs = {
+				LUTFile = Input { Value = "/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/Rec709 Fujifilm 3513DI D60.cube", },
+				Interpolation = Input { Value = FuID { "Tetra" }, },
+				Input = Input {
+					SourceOp = "ColorCorrector1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 247.5 } },
+		},
+		Saver1_2_1_1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_sample_3513_lut.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "lut2383",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 379.5 } },
+		},
+		MergeAdjacent1 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Saver2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Saver1_2_1_1",
+					Source = "Output",
+				},
+				Direction = Input { Value = 2, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 412.5 } },
+		},
+		PipeRouter1 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "MergeAdjacent1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 55, 445.5 } },
+		},
+		ColorMatrix1 = CustomColorMatrix {
+			Inputs = {
+				Matrix = Input {
+					Value = MatrixTable {
+						NumEntries = 54,
+						Type = 10,
+						Offset = 0,
+						Minimum = 0,
+						Maximum = 1,
+						MinimumValue = 0,
+						MaximumValue = 1,
+						StartSlope = 1,
+						EndSlope = 1,
+						StartIn = 0,
+						EndIn = 1,
+						Table = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 }
+					},
+				},
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, 478.5 } },
+		},
+		Saver2_1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/blue_film/negative_inverted_channel_red.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "ColorMatrix1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, 511.5 } },
+		}
+	},
+	Frames = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			PresetName = "Default",
+			Left = 0,
+			Top = 27,
+			Width = 1800,
+			Height = 1047,
+			ZoneInfo = {
+				["Right|(!Spline+!Keyframes+(Left|(!MediaPool+!Effects)))"] = {
+				},
+				AuxLeft = { Expanded = true },
+				["!Left"] = {
+				},
+				["!Right+(Spline|Keyframes|(!Left+(MediaPool|Effects)))"] = {
+				},
+				Right = { Expanded = true },
+				Left = { Expanded = false, },
+				AuxRight = { Expanded = true },
+			},
+			ViewInfo = {
+				Viewer1 = { Show = true, RatioY = 100, RatioX = 1, },
+				MainSplit = {
+				},
+				CenterSplit = {
+					RatioX = 1,
+					RatioY = 100,
+				},
+				Viewer2 = { Show = false, Adjust = true, RatioY = 100, MRU = 0, RatioX = 1, },
+				Comments = { Show = false },
+				Time = { Show = true, RatioX = 100, },
+				PoolSplit = {
+				},
+				InnerColumns = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Keyframes = { Show = false, },
+				InspectorSplit = {
+				},
+				LayoutStrip = { Show = true, RatioX = 100, },
+				Inspector = { Show = true, RatioY = 1, RatioX = 100, },
+				SplineSplit = {
+				},
+				ActionStrip = { Show = true, RatioX = 100, },
+				OuterColumns = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Effects = { Show = false, },
+				Clips = { Show = false, },
+				Metadata = { Show = false, },
+				OuterLeft = {
+				},
+				ViewerSplit = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Nodes = { Show = true, RatioY = 100, RatioX = 0.40421098882336, },
+				OuterRight = {
+					RatioY = 100,
+					PixelX = 420,
+				},
+				MediaPool = { Show = false, },
+				Spline = { Show = false, }
+			},
+			Views = ordered() {
+				Effects = MultiView {
+					Active = "EffectView",
+					ViewList = ordered() {
+						EffectView = "EffectView"
+					},
+				},
+				Nodes = MultiView {
+					Active = "FlowView",
+					ViewList = ordered() {
+						FlowView = "FlowView"
+					},
+					FlowView = FlowView {
+						Flags = {
+							Navigator = true,
+							AutoHideNavigator = true,
+							GridSnap = true,
+							PipesAlways = true,
+							ShowHidden = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Vertical",
+						PipeStyle = "Orthogonal",
+						RootScale = 0.587574,
+						RootOffset = { 137.492, 74.7114 }
+					}
+				},
+				Keyframes = MultiView {
+					Active = "TimelineView",
+					ViewList = ordered() {
+						TimelineView = "TimelineView"
+					},
+					TimelineView = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 232, Bottom = 320 },
+							ScaleX = 2.14424951267057,
+							OffsetX = -51.4619883040936,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "frame"
+						},
+						Spreadsheet = { LeftPos = 232, Visible = false }
+					}
+				},
+				Spline = MultiView {
+					Active = "SplineView",
+					ViewList = ordered() {
+						SplineView = "SplineEditorView"
+					},
+					SplineView = SplineEditorView {
+						LeftPos = 264,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = 12.2,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					}
+				},
+				Inspector = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Viewer1 = MultiView {
+					Active = "LeftView",
+					ViewList = ordered() {
+						LeftView = "PreviewContainer"
+					},
+				},
+				Viewer2 = MultiView {
+					Active = "RightView",
+					ViewList = ordered() {
+						RightView = "PreviewContainer"
+					},
+				},
+				Time = "TimeView",
+				ActionStrip = "ActionStripView",
+				LayoutStrip = "LayoutStripView"
+			},
+			Layout = {
+				{ ID = "LayoutStrip", FixedY = 36, Resolve = false, Flat = true },
+				{
+					{
+						{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+						{ ID = "Effects", RatioX = 1 },
+						Zone = "Left",
+						Rows = 2,
+						PaneID = "OuterLeft",
+						PixelX = 420
+					},
+					{
+						{
+							{
+								{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+								{ ID = "Effects", RatioX = 1 },
+								PaneID = "InnerLeft",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Left"
+							},
+							{
+								{
+									{ ID = "Viewer1", RatioY = 0.01, RatioX = 1 },
+									{ ID = "Viewer2", RatioX = 1 },
+									RatioY = 1,
+									Columns = 2,
+									PaneID = "ViewerSplit"
+								},
+								{ ID = "Time", FixedY = 83, Flat = true },
+								RatioX = 1,
+								Rows = 2
+							},
+							{
+								{ ID = "Inspector", RatioY = 1 },
+								{ ID = "Metadata", RatioY = 1, Fusion = false },
+								PaneID = "InnerRight",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Right"
+							},
+							RatioY = 2,
+							Columns = 3,
+							PaneID = "InnerColumns"
+						},
+						{ ID = "ActionStrip", FixedY = 50, Flat = true },
+						{
+							{ ID = "Nodes", RatioX = 1 },
+							{ ID = "Spline", RatioX = 1 },
+							{ ID = "Keyframes", RatioX = 1 },
+							RatioY = 1,
+							Columns = 3,
+							PaneID = "MainSplit"
+						},
+						{ Fusion = false, ID = "Clips", LARGE_FixedY = 160, MEDIUM_FixedY = 138, SMALL_FixedY = 110 },
+						RatioX = 1,
+						Rows = 4,
+						PaneID = "CenterSplit"
+					},
+					{
+						{ ID = "Inspector", RatioY = 1 },
+						{ ID = "Metadata", RatioY = 1, Fusion = false },
+						Zone = "Right",
+						Rows = 2,
+						PaneID = "OuterRight",
+						PixelX = 420
+					},
+					RatioY = 1,
+					Columns = 3,
+					PaneID = "OuterColumns"
+				},
+				RatioX = 1,
+				Rows = 2,
+				RatioY = 1
+			},
+			TopBar = {
+				Left = { "Left", "MediaPool", "Effects", "Clips", "Nodes", "Console" },
+				Right = { "Spline", "Keyframes", "Metadata", "Inspector", "Right" }
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Interactive = {
+				Proxy = {
+					Scale = 1,
+					AutoScale = 1,
+				},
+			},
+			AutoSave = {
+				Delay = 300,
+			},
+			Views = {
+				RightView = {
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+				},
+				LeftView = {
+					Viewer = {
+						ScaleMode = 1,
+						Channel = 4294967295,
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GLWaveformViewer",
+						GLWaveformViewer = {
+							AutoBounds = false,
+							Layout = { -385, 15, -15, 428 }
+						},
+						Waveform = {
+							Mode = 1,
+						},
+						GLHistogramViewer = {
+							AutoBounds = true
+						}
+					},
+				},
+				View1 = {
+					PrevCtrlInactiveColor = 4278255360,
+					PickW = 1,
+					PickH = 1,
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					PrevCtrlActiveColor = 4278190335,
+					AlwaysOnTop = true,
+					FullScreen = false
+				},
+				Defaults = {
+					View3D = {
+						Options = {
+							ShowUVTangentVectors = false
+						},
+						TextureDepth = "int8"
+					},
+					MaterialViewer = {
+						Options = {
+							TextureDepth = "int8"
+						},
+					},
+				},
+				View2 = {
+					PickH = 1,
+					PickW = 1,
+					AlwaysOnTop = true,
+					FullScreen = false
+				}
+			},
+			Paths = {
+				Map = {
+				},
+			},
+			FrameFormat = {
+				Name = "Ultra HD 2160",
+				Width = 3840,
+				Height = 2160,
+				GuideRatio = 1.77777777777778,
+				DepthFull = 3,
+				DepthPreview = 3,
+				DepthInteractive = 3,
+				DepthLoader = 1,
+			},
+			LastFile = "/Users/thatcher/Downloads/Nikon DNGs/dpreview_color_checker.exr",
+			Unsorted = {
+				RenderSettings = {
+					Configs = {
+						Preview = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						},
+						Final = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						}
+					},
+					PreviewConfig = "Preview",
+					CurrentConfig = "Final"
+				}
+			},
+			FlowView = {
+				Direction = 1,
+				GridSnap = true,
+				PipesOnTop = true,
+				ShowHidden = true,
+				PipeStyle = 0,
+				FullToolIndicator = false
+			},
+			QuickTime = {
+			},
+			Metadata = {
+				SubTableMode = 0
+			}
+		}
+	},
+}
+
