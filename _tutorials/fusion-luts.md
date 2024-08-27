@@ -25,6 +25,9 @@ In this article, I'll describe the necessary steps to accomplish most LUT creati
     - [Applying LUT files](#applying-lut-files)
         - [FileLUT](#filelut)
         - [OCIOFileTransform](#ociofiletransform)
+- [Visualizing your LUTs in Fusion](#visualizing-your-luts-in-fusion)
+    - [LUT Behavior on a grayscale](#lut-behavior-on-a-grayscale)
+    - [LUT Behavior as a cube](#lut-behavior-as-a-cube)
 - [Examples](#examples)
     - [Authoring 3D LUTs](#authoring-3d-luts)
     - [Authoring 1D LUTs](#authoring-1d-luts)
@@ -169,6 +172,25 @@ This allows you to apply a 1D or 3D LUT file to an image. This uses linear inter
 This allows you to apply a 1D or 3D LUT file to an image, and lets you choose linear or tetrahedral interpolation. Also allows you to invert a loaded 1D LUT by choosing "Reverse" as the direction.
 
 ![](/images/tutorials/fusion-luts/ociofiletransform.png)
+
+# Visualizing your LUTs in Fusion
+## LUT Behavior on a grayscale
+You can see what your LUT does to a gray ramp with the following chain of nodes:
+1. Background node, set the "Type" to Horizontal and make a gradient from $$(0, 0, 0)$$ to $$(1, 1, 1)$$.
+2. OCIOFileTransform node to apply your LUT, if it's already written to a file. Otherwise use LUTCubeApply or LUTCubeApply1D.
+
+You'd then send node (2) to one of the viewers and click the "SubView" button in the top left corner of the viewer (highlighted below). You can change the type of visualization to Waveform. Right clicking on the waveform subview that appears allows you to change settings of the visualization, such as if you want to switch to RGB mode or change the sampling.
+
+![](/images/tutorials/fusion-luts/fusionsubviews.png)
+
+## LUT Behavior as a cube
+Use the following chain of nodes:
+1. LUTCubeCreator, set to some size
+2. OCIOFileTransform node to apply your LUT, if it's already written to a file. Otherwise use LUTCubeApply or LUTCubeApply1D.
+
+Sending node (2) to one of the viewers, similarly to the previous section, you would then click the SubView button, right click on the scope and choose "3D Histogram". I prefer to set it to Solid and choose something reasonable for the sampling frequency; note that on full sized HD or 4k images, Fusion will run quite slowly if your sampling frequency is too high.
+
+![](/images/tutorials/fusion-luts/3dhistogramsettings.png)
 
 # Examples
 Below I will outline some example use-cases and how to implement them in Fusion.
