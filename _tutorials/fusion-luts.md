@@ -110,7 +110,7 @@ We then sample the two closest values in the table for $$f_r(r), f_g(g), f_b(b)$
 
 As an example for 1D LUTs, I have created a strong S curve that we will apply with a LUT size set to 8, 16, 32, and 64 points.
 
-<div class="gallery" data-columns="2">
+<div class="gallery" data-columns="4">
     <img src="/images/tutorials/fusion-luts/lut1d_8pt.png">
     <img src="/images/tutorials/fusion-luts/lut1d_16pt.png">
     <img src="/images/tutorials/fusion-luts/lut1d_32pt.png">
