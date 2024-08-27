@@ -26,6 +26,7 @@ In this article, I'll describe the necessary steps to accomplish most LUT creati
         - [FileLUT](#filelut)
         - [OCIOFileTransform](#ociofiletransform)
 - [Examples](#examples)
+    - [Authoring 3D LUTs](#authoring-3d-luts)
     - [Authoring 1D LUTs](#authoring-1d-luts)
         - [Inverting a 1D LUT](#inverting-a-1d-lut)
     - [Convert a 3D LUT to a 1D LUT](#convert-a-3d-lut-to-a-1d-lut)
@@ -36,7 +37,8 @@ In this article, I'll describe the necessary steps to accomplish most LUT creati
     - [Make a monochrome version of a LUT.](#make-a-monochrome-version-of-a-lut)
     - [Create an identity LUT](#create-an-identity-lut)
     - [Change the grayscale behavior of a LUT](#change-the-grayscale-behavior-of-a-lut)
-    - [Adjust the LUT to expect video levels on the input](#adjust-the-lut-to-expect-video-levels-on-the-input)
+    - [Adjusting the LUT for Video Levels](#adjusting-the-lut-for-video-levels)
+    - [Make an exposure compensation LUT.](#make-an-exposure-compensation-lut)
 - [Conclusion](#conclusion)
 
 ---
@@ -171,6 +173,15 @@ This allows you to apply a 1D or 3D LUT file to an image, and lets you choose li
 # Examples
 Below I will outline some example use-cases and how to implement them in Fusion.
 
+## Authoring 3D LUTs
+You can easily make 3D LUTs in Fusion with the following chain of nodes:
+
+1. LUTCubeCreator, set to the size that you wan the 3D LUT to be
+2. Whatever color grade or operations you want to bake into a LUT
+3. LUTCubeAnalyzer, to save the 3D LUT to a .cube file. Simply choose a location and then click "Write File"
+
+This written file from (3) can be applied to an image using FileLUT, or preferably OCIOFileTransform, which supports tetrahedral interpolation. Alternatively, you can also use LUTCubeApply to apply the HALD image as a LUT.
+
 ## Authoring 1D LUTs
 We can create and apply 1D LUTs through the following chain of nodes
 
@@ -178,7 +189,7 @@ We can create and apply 1D LUTs through the following chain of nodes
 2. Whatever color grade or operation you want to capture in the 1D LUT.
 3. LUTCubeAnalyzer1D, to save the 1D LUT to a file.
 
-The written file from (3) can then be applied to an image using FileLUT or OCIOFileTransform. Alternatively, you can use LUTCubeApply1D
+The written file from (3) can then be applied to an image using FileLUT or OCIOFileTransform. Alternatively, you can use LUTCubeApply1D.
 
 ![](/images/tutorials/fusion-luts/lut1dauthorshipnodes.png)
 
@@ -268,7 +279,7 @@ Similarly, in the foreground of (4), you will pipe in the grayscale behavior/1D 
 
 Alternatively, you could play with inverting the curves you want to remove and then applying the curve you'd rather have.
 
-## Adjust the LUT to expect video levels on the input
+## Adjusting the LUT for Video Levels
 Some monitoring systems apply a LUT without first scaling the signal from video to full levels. If you have one of these, you'll need to modify the LUT accordingly to get the right contrast in your image. First, you'll need to download my Levels Conversion DCTL and then apply the following chain:
 
 <a href="https://github.com/thatcherfreeman/utility-dctls/blob/main/Utilities/Levels%20Converter.dctl" class="button button--large">Levels Conversion DCTL</a>
@@ -278,6 +289,16 @@ Some monitoring systems apply a LUT without first scaling the signal from video 
 3. OCIOFileTransform in tetrahedral mode to apply the LUT
 4. (Might be required) Levels Conversion DCTL to go from the levels that the LUT outputs to the levels the system expects from the LUT.
 5. LUTCubeAnalyzer, to save the LUT somewhere.
+
+## Make an exposure compensation LUT.
+Sometimes it's helpful to have a monitoring LUT that includes a one stop overexposure recommendation. This can easily be done, supposing that you already have a LUT that goes from the camera log space to Rec709. You'd use the following chain:
+
+1. LUTCubeCreator, set to the size that you want for your LUT.
+2. ColorSpaceTransform from your camera's log curve to linear, with no OOTF boxes checked nor tone mapping/gamut mapping.
+3. ColorGain node to apply a gain/exposure adjustment. Set this to $$2^x$$ where $$x$$ is the number of stops you want to compensate for. IE if you want the user to overexpose by one stop, set this to 0.5.
+4. ColorSpaceTransform from Linear to the camera's log curve, with no OOTF boxes checked nor tone mapping/gamut mapping.
+5. Your normal LUT or pipeline used to make the normal LUT
+6. LUTCubeAnalyzer, to save the LUT to a file somewhere.
 
 # Conclusion
 
