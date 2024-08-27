@@ -7,9 +7,7 @@ featured_image: /images/posts/dynamic_range/dynamic_range_thumb0000.jpg
 tags: dynamic range bit log linear quantization stochastic rounding fixed unsigned integer snr
 ---
 
-<div class="gallery" data-columns="1">
-    <img src="/images/posts/dynamic_range/dynamic_range_header0000.jpg">
-</div>
+![](/images/posts/dynamic_range/dynamic_range_header0000.jpg)
 
 # The big question
 I'm sure you've seen the claim online that a camera with a 14-bit RAW cannot have more than 14 stops of dynamic range. The above graphic consists of a synthetic stop chart quantized to just 4 bits in linear, then SRGB encoded for your display. It clearly shows more than 4 stops of dynamic range, so let's break it down.
@@ -158,9 +156,7 @@ You can explore this calculation here: [Desmos](https://www.desmos.com/calculato
 
 The SNR of $$x$$ is reproduced in the below plot, where $$x$$ is on the x-axis and SNR is on the y-axis:
 
-<div class="gallery" data-columns="1">
-    <img src="/images/posts/dynamic_range/one_bit_snr.png">
-</div>
+![](/images/posts/dynamic_range/one_bit_snr.png)
 
 You can see that the SNR increases with $$X$$, and due to $$\text{var}(x)$$ approaching zero as at $$x \rightarrow 1$$, it approaches infinity. Most importantly, the accepted threshold of $$\text{SNR} = 2.0$$ (as well as any other SNR threshold) exists with $$x < 1.0$$, so the denominator "smallest distinguishable signal" in the dynamic range calculation can be less than 1.
 

@@ -129,23 +129,17 @@ Fusion comes built-in with a handful of effects for manipulating LUTs:
 ### LUTCubeCreator
 This tool generates an image that contains a pixel for each row that will exist in a 3D cube LUT of a given size. This is sometimes called a "HALD Image"
 
-<div class="gallery" data-columns="1">
-    <img src="/images/tutorials/fusion-luts/lutcubecreator3d.png">
-</div>
+![](/images/tutorials/fusion-luts/lutcubecreator3d.png)
 
 ### LUTCubeAnalyzer
 This is a tool that should be given a HALD Image of the same shape as those outputed by LUTCubeCreator, and writes it to disk as a LUT in one of a few different formats. Once a HALD image is connected as the input to this node, you simply choose a location to save the LUT, and then click "write file".
 
-<div class="gallery" data-columns="1">
-    <img src="/images/tutorials/fusion-luts/lutcubeanalyzer3d.png">
-</div>
+[](/images/tutorials/fusion-luts/lutcubeanalyzer3d.png)
 
 ### LUTCubeApply
 This Fusion tool takes a HALD image of the same shape as outputted by the LUTCubeCreator as the foreground and applies it to the image in the background. It uses **linear interpolation instead of tetrahedral interpolation**.
 
-<div class="gallery" data-columns="1">
-    <img src="/images/tutorials/fusion-luts/lutcubeapply3d.png">
-</div>
+![](/images/tutorials/fusion-luts/lutcubeapply3d.png)
 
 ## 1D LUTs
 For manipulating 1D LUTs, I've made a series of fuses that you can download and install for Fusion below, by navigating to the Fuses folder.
@@ -167,16 +161,12 @@ There are multiple ways to apply a LUT that has already been written to a .cube 
 ### FileLUT
 This allows you to apply a 1D or 3D LUT file to an image. This uses linear interpolation.
 
-<div class="gallery" data-columns="1">
-    <img src="/images/tutorials/fusion-luts/filelut.png">
-</div>
+![](/images/tutorials/fusion-luts/filelut.png)
 
 ### OCIOFileTransform
 This allows you to apply a 1D or 3D LUT file to an image, and lets you choose linear or tetrahedral interpolation. Also allows you to invert a loaded 1D LUT by choosing "Reverse" as the direction.
 
-<div class="gallery" data-columns="1">
-    <img src="/images/tutorials/fusion-luts/ociofiletransform.png">
-</div>
+![](/images/tutorials/fusion-luts/ociofiletransform.png)
 
 # Examples
 Below I will outline some example use-cases and how to implement them in Fusion.
@@ -190,9 +180,7 @@ We can create and apply 1D LUTs through the following chain of nodes
 
 The written file from (3) can then be applied to an image using FileLUT or OCIOFileTransform. Alternatively, you can use LUTCubeApply1D
 
-<div class="gallery" data-columns="1">
-    <img src="/images/tutorials/fusion-luts/lut1dauthorshipnodes.png">
-</div>
+![](/images/tutorials/fusion-luts/lut1dauthorshipnodes.png)
 
 ### Inverting a 1D LUT
 You can load a 1D LUT into OCIOFileTransform and click Reverse as the direction.
@@ -225,9 +213,7 @@ Repeat the above two steps in a separate chain for the LUT or pipeline you want 
 
 You can follow the approach in either of the below graphs.
 
-<div class="gallery" data-columns="1">
-    <img src="/images/tutorials/fusion-luts/lutcomposite.png">
-</div>
+![](/images/tutorials/fusion-luts/lutcomposite.png)
 
 ## Color Spaces and LUTs
 Suppose you have a LUT that expects one color space but you want to use it on an image in a different color space. Create the following chain of nodes.
@@ -278,9 +264,7 @@ Similarly, in the foreground of (4), you will pipe in the grayscale behavior/1D 
 2. 1D curve that captures the behavior of the LUT that you want to add.
     1. The foreground here could be generated via LUTCubeCreator1D, followed by whatever method you want to use to create a new 1D curve. In the below example, we suppose that I wanted to remove the split tone and I used a ColorCorrector to reduce saturation
 
-<div class="gallery" data-columns="1">
-    <img src="/images/tutorials/fusion-luts/composite_curve.png">
-</div>
+![](/images/tutorials/fusion-luts/composite_curve.png)
 
 Alternatively, you could play with inverting the curves you want to remove and then applying the curve you'd rather have.
 
