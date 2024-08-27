@@ -183,6 +183,16 @@ You'd then send node (2) to one of the viewers and click the "SubView" button in
 
 ![](/images/tutorials/fusion-luts/fusionsubviews.png)
 
+Another option is this:
+1. Background node, let as black
+2. Apply my Exposure chart DCTL, whose download link is below
+3. ColorSpaceTransform from Linear to your LUT's expected input color space
+4. OCIOFileTransform to apply your LUT.
+
+This would give you the behavior of the LUT in one-stop increments.
+
+<a href="https://github.com/thatcherfreeman/utility-dctls/blob/main/Utilities/Exposure%20Chart.dctl" class="button button--large">Exposure Chart DCTL</a>
+
 ## LUT Behavior as a cube
 Use the following chain of nodes:
 1. LUTCubeCreator, set to some size
