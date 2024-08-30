@@ -1,0 +1,1097 @@
+Composition {
+	CurrentTime = 0,
+	RenderRange = { 0, 0 },
+	GlobalRange = { 0, 1 },
+	CurrentID = 84,
+	HiQ = true,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion Studio 18.6.6 build 4",
+	SavedOutputs = 1,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/tutorials/synthetic-charts/thumbnail.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/tutorials/synthetic-charts/chromasubsampling_subsampled.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/tutorials/synthetic-charts/chromasubsampling_full.png",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/tutorials/synthetic-charts/frequencychart.png"
+	},
+	Tools = {
+		DCTLInterpreter3_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Effects/Field Curvature.dctl", },
+				FloatSlider0 = Input { Value = 0.178, },
+				FloatSlider2 = Input { Value = 80.3, },
+				FloatSlider3 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "DCTLInterpreter2_1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 214.5 } },
+		},
+		ColorGain2 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GammaRed = Input { Value = 2.2, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter3_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 280.5 } },
+		},
+		DCTLInterpreter2_1_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Grid Chart.dctl", },
+				IntSlider0 = Input { Value = 19, },
+				IntSlider1 = Input { Value = 10, },
+				ComboBox0 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "Background5",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 880, 148.5 } },
+		},
+		Background5 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 1, },
+				Width = Input { Value = 3840, },
+				Height = Input { Value = 2160, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 115.5 } },
+		},
+		DCTLInterpreter2_1_2 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Grid Chart.dctl", },
+				IntSlider0 = Input { Value = 19, },
+				IntSlider1 = Input { Value = 10, },
+				ImageInput = Input {
+					SourceOp = "Background5",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 990, 148.5 } },
+		},
+		DCTLInterpreter3_1_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Effects/Field Curvature.dctl", },
+				FloatSlider0 = Input { Value = 0.178, },
+				FloatSlider2 = Input { Value = 80.3, },
+				FloatSlider3 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "DCTLInterpreter2_1_2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 880, 247.5 } },
+		},
+		ColorGain2_1 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GammaRed = Input { Value = 2.2, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter3_1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 880, 280.5 } },
+		},
+		MergeAdjacent6 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "ColorGain2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "ColorGain2_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 880, 346.5 } },
+		},
+		MergeAdjacent4 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "DCTLInterpreter2_1_1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "DCTLInterpreter2_1_2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 990, 214.5 } },
+		},
+		MergeAdjacent5 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MergeAdjacent4",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MergeAdjacent6",
+					Source = "Output",
+				},
+				Direction = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 412.5 } },
+		},
+		DCTLInterpreter5 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/RGB Chips.dctl", },
+				ComboBox1 = Input { Value = 1, },
+				ComboBox3 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "Background4",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 16.5 } },
+		},
+		Background4 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 1, },
+				Width = Input { Value = 3840, },
+				Height = Input { Value = 2160, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1100, -16.5 } },
+		},
+		DCTLInterpreter5_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/RGB Chips.dctl", },
+				IntSlider0 = Input { Value = 17, },
+				ComboBox1 = Input { Value = 1, },
+				ComboBox3 = Input { Value = 2, },
+				ImageInput = Input {
+					SourceOp = "Background4",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 16.5 } },
+		},
+		DCTLInterpreter4 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Gradient Smoothness Chart.dctl", },
+				ImageInput = Input {
+					SourceOp = "Background3",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, 16.5 } },
+		},
+		Background3 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 1, },
+				Width = Input { Value = 3840, },
+				Height = Input { Value = 2160, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 880, -16.5 } },
+		},
+		DCTLInterpreter4_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Gradient Smoothness Chart.dctl", },
+				ComboBox1 = Input { Value = 2, },
+				ImageInput = Input {
+					SourceOp = "Background3",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 16.5 } },
+		},
+		Background2 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 1, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, -16.5 } },
+		},
+		exposurechart = Fuse.DCTLInterpreter {
+			NameSet = true,
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Exposure Chart.dctl", },
+				ImageInput = Input {
+					SourceOp = "Background2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 16.5 } },
+		},
+		lin_to_logc3 = ColorSpaceTransform {
+			NameSet = true,
+			Inputs = {
+				InputColorSpace = Input { Value = FuID { "ALEXA3_COLORSPACE" }, },
+				OutputColorSpace = Input { Value = FuID { "ALEXA3_COLORSPACE" }, },
+				OutputGamma = Input { Value = FuID { "LOGC_EI800_GAMMA" }, },
+				ToneMappingMethod = Input { Value = FuID { "TM_NONE" }, },
+				SrcLumMax = Input { Disabled = true, },
+				DstLumMax = Input { Disabled = true, },
+				Input = Input {
+					SourceOp = "exposurechart",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 49.5 } },
+		},
+		DCTLInterpreter1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Gradient Smoothness Chart.dctl", },
+				CheckBox0 = Input { Value = 1, },
+				ComboBox0 = Input { Value = 0, },
+				ImageInput = Input {
+					SourceOp = "Background1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 82.5 } },
+		},
+		DCTLInterpreter2_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Grid Chart.dctl", },
+				IntSlider0 = Input { Value = 13, },
+				IntSlider1 = Input { Value = 5, },
+				ComboBox0 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "Background1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 82.5 } },
+		},
+		DCTLInterpreter3 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Effects/Field Curvature.dctl", },
+				FloatSlider0 = Input { Value = 0.178, },
+				FloatSlider2 = Input { Value = 80.3, },
+				FloatSlider3 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "DCTLInterpreter2_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 115.5 } },
+		},
+		ColorGain1 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GammaRed = Input { Value = 2.2, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter3",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 115.5 } },
+		},
+		MergeAdjacent1 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "DCTLInterpreter1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "ColorGain1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 115.5 } },
+		},
+		DCTLInterpreter1_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Exposure Chart.dctl", },
+				ImageInput = Input {
+					SourceOp = "Background1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 16.5 } },
+		},
+		ColorSpaceTransform1 = ColorSpaceTransform {
+			Inputs = {
+				OutputGamma = Input { Value = FuID { "TWOPOINTTWO_GAMMA" }, },
+				IsSrcLumMaxCustomEnabled = Input { Value = 1, },
+				SrcLumMax = Input { Value = 10000, },
+				DstLumMax = Input { Disabled = true, },
+				Input = Input {
+					SourceOp = "DCTLInterpreter1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 49.5 } },
+		},
+		Background1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 1, },
+				Width = Input { Value = 1000, },
+				Height = Input { Value = 1000, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 16.5 } },
+		},
+		DCTLInterpreter2 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/RGB Chips.dctl", },
+				FloatSlider0 = Input { Value = 0.999, },
+				IntSlider0 = Input { Value = 18, },
+				IntSlider1 = Input { Value = 1, },
+				CheckBox0 = Input { Value = 1, },
+				CheckBox2 = Input { Value = 1, },
+				ComboBox0 = Input { Value = 0, },
+				ComboBox1 = Input { Value = 1, },
+				ComboBox3 = Input { Value = 2, },
+				ImageInput = Input {
+					SourceOp = "Background1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 82.5 } },
+		},
+		MergeAdjacent2 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "ColorSpaceTransform1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "DCTLInterpreter2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 148.5 } },
+		},
+		MergeAdjacent3 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MergeAdjacent1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MergeAdjacent2",
+					Source = "Output",
+				},
+				Direction = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 148.5 } },
+		},
+		Saver1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/tutorials/synthetic-charts/thumbnail.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "MergeAdjacent3",
+					Source = "Output",
+				},
+				["JpegFormat.Quality"] = Input { Value = 97, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 214.5 } },
+		},
+		Background6 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 1, },
+				Width = Input { Value = 720, },
+				Height = Input { Value = 480, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 115.5 } },
+		},
+		DCTLInterpreter6 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Chroma Subsampling Chart.dctl", },
+				ImageInput = Input {
+					SourceOp = "Background6",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 148.5 } },
+		},
+		Saver2_1 = Saver {
+			Inputs = {
+				["PNGFormat.PreDivide"] = Input { Value = 1, },
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/tutorials/synthetic-charts/chromasubsampling_subsampled.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "DCTLInterpreter6",
+					Source = "Output",
+				},
+				["JpegFormat.Quality"] = Input { Value = 100, },
+				["JpegFormat.ChromaSubsampling"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1210, 181.5 } },
+		},
+		Saver2 = Saver {
+			Inputs = {
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/tutorials/synthetic-charts/chromasubsampling_full.png",
+						FormatID = "PNGFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "DCTLInterpreter6",
+					Source = "Output",
+				},
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				["JpegFormat.Quality"] = Input { Value = 97, },
+				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
+				["PNGFormat.PreDivide"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1100, 181.5 } },
+		},
+		Background7 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 1, },
+				Width = Input { Value = 720, },
+				Height = Input { Value = 480, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 115.5 } },
+		},
+		DCTLInterpreter7 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Frequency Test Chart.dctl", },
+				FloatSlider1 = Input { Value = 70, },
+				ImageInput = Input {
+					SourceOp = "Background7",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 148.5 } },
+		},
+		Saver3 = Saver {
+			CtrlWZoom = false,
+			Inputs = {
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/tutorials/synthetic-charts/frequencychart.png",
+						FormatID = "PNGFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "PNGFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "DCTLInterpreter7",
+					Source = "Output",
+				},
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				["PNGFormat.SaveAlpha"] = Input { Value = 0, },
+				["PNGFormat.PreDivide"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 181.5 } },
+		},
+		Background7_1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 1, },
+				Width = Input { Value = 3840, },
+				Height = Input { Value = 2160, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 115.5 } },
+		},
+		DCTLInterpreter7_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/utility-dctls/Utilities/Frequency Test Chart.dctl", },
+				FloatSlider1 = Input { Value = 141, },
+				ImageInput = Input {
+					SourceOp = "Background7_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 148.5 } },
+		}
+	},
+	Frames = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			PresetName = "Mid Flow",
+			Left = 0,
+			Top = 27,
+			Width = 1800,
+			Height = 1047,
+			ZoneInfo = {
+				AuxRight = { Expanded = true },
+				Right = { Expanded = true },
+				Left = { Expanded = false, },
+				AuxLeft = { Expanded = true },
+				["!Left"] = {
+				},
+				["!Right+(Spline|Keyframes|(!Left+(MediaPool|Effects)))"] = {
+				},
+				["Right|(!Spline+!Keyframes+(Left|(!MediaPool+!Effects)))"] = {
+				},
+			},
+			ViewInfo = {
+				Keyframes = { Show = false, },
+				LayoutStrip = { Show = true, RatioX = 100, },
+				Inspector = { Show = true, RatioY = 1, RatioX = 100, },
+				Effects = { Show = false, },
+				Viewer2 = { Show = false, RatioY = 100, RatioX = 0.812064965197216, Adjust = true, MRU = 0 },
+				Comments = { Show = false },
+				Clips = { Show = false, },
+				ActionStrip = { Show = true, RatioX = 100, },
+				Time = { Show = true, RatioX = 100, },
+				MediaPool = { Show = false, },
+				Nodes = { Show = true, RatioY = 100, RatioX = 0.372819771237041, Adjust = false, MRU = 7 },
+				Metadata = { Show = false, },
+				Viewer1 = { Show = true, RatioY = 100, RatioX = 1.18793503480278, },
+				Spline = { Show = false, Adjust = true, RatioX = 1, RatioY = 100, MRU = 0 },
+				OuterColumns = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				OuterLeft = {
+				},
+				CenterSplit = {
+					RatioX = 1,
+					RatioY = 100,
+				},
+				OuterRight = {
+					PixelX = 420,
+					RatioY = 100,
+				},
+				InnerColumns = {
+					RatioX = 100,
+					RatioY = 1.00020920502092,
+				},
+				MainSplit = {
+					RatioX = 100,
+					RatioY = 0.399790794979079,
+				},
+				ViewerSplit = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				PoolSplit = {
+				},
+				SplineSplit = {
+					RatioX = 2,
+					RatioY = 100,
+				},
+				InspectorSplit = {
+				}
+			},
+			Views = ordered() {
+				Effects = MultiView {
+					Active = "EffectView",
+					ViewList = ordered() {
+						EffectView = "EffectView"
+					},
+				},
+				Nodes = MultiView {
+					Active = "FlowView",
+					ViewList = ordered() {
+						FlowView = "FlowView"
+					},
+					FlowView = FlowView {
+						Flags = {
+							GridSnap = true,
+							PipesAlways = true,
+							ShowHidden = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 242, 140 },
+						Direction = "Vertical",
+						PipeStyle = "Orthogonal",
+						RootScale = 1.30365,
+						RootOffset = { -1314.16, 119.257 }
+					}
+				},
+				Keyframes = MultiView {
+					Active = "TimelineView",
+					ViewList = ordered() {
+						TimelineView = "TimelineView"
+					},
+					TimelineView = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 232, Bottom = 320 },
+							ScaleX = 0.00214424951267057,
+							OffsetX = -0.0514619883040936,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "frame"
+						},
+						Spreadsheet = { LeftPos = 232, Visible = false }
+					}
+				},
+				Spline = MultiView {
+					Active = "SplineView",
+					ViewList = ordered() {
+						SplineView = "SplineEditorView"
+					},
+					SplineView = SplineEditorView {
+						LeftPos = 264,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = -6.8,
+						OffsetY = 0.427118644067797,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					}
+				},
+				Inspector = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Viewer1 = MultiView {
+					Active = "LeftView",
+					ViewList = ordered() {
+						LeftView = "PreviewContainer"
+					},
+				},
+				Viewer2 = MultiView {
+					Active = "RightView",
+					ViewList = ordered() {
+						RightView = "PreviewContainer"
+					},
+				},
+				Time = "TimeView",
+				ActionStrip = "ActionStripView",
+				LayoutStrip = "LayoutStripView"
+			},
+			Layout = {
+				{ ID = "LayoutStrip", FixedY = 36, Resolve = false, Flat = true },
+				{
+					{
+						{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+						{ ID = "Effects", RatioX = 1 },
+						Zone = "Left",
+						Rows = 2,
+						PaneID = "OuterLeft",
+						PixelX = 420
+					},
+					{
+						{ ID = "ActionStrip", FixedY = 50, Flat = true },
+						{
+							{
+								{
+									{ ID = "Viewer1", RatioX = 1 },
+									{ ID = "Viewer2", RatioX = 1 },
+									RatioY = 1,
+									Columns = 2,
+									PaneID = "ViewerSplit"
+								},
+								{ ID = "Time", FixedY = 83, Flat = true },
+								RatioX = 1,
+								Rows = 2
+							},
+							{ ID = "Nodes", RatioX = 0.5 },
+							RatioY = 1,
+							Columns = 2,
+							PaneID = "InnerColumns"
+						},
+						{
+							{
+								{ ID = "MediaPool", Fusion = false, RatioX = 0.5 },
+								{ ID = "Effects", RatioX = 0.5 },
+								RatioX = 1,
+								PaneID = "PoolSplit",
+								Columns = 2,
+								Zone = "!Left"
+							},
+							{
+								{ ID = "Spline", RatioX = 1 },
+								{ ID = "Keyframes", RatioX = 1 },
+								RatioX = 2,
+								PaneID = "SplineSplit",
+								Columns = 2
+							},
+							{
+								{ ID = "Metadata", Fusion = false, PixelX = 420 },
+								{ ID = "Inspector", PixelX = 420 },
+								PaneID = "InspectorSplit",
+								Columns = 2,
+								PixelX = 420,
+								MaxViews = 1,
+								Zone = "!Right+(Spline|Keyframes|(!Left+(MediaPool|Effects)))"
+							},
+							RatioY = 0.4,
+							Columns = 5,
+							PaneID = "MainSplit"
+						},
+						{ Fusion = false, ID = "Clips", LARGE_FixedY = 160, MEDIUM_FixedY = 138, SMALL_FixedY = 110 },
+						RatioX = 1,
+						Rows = 4,
+						PaneID = "CenterSplit"
+					},
+					{
+						{ ID = "Inspector", RatioY = 1 },
+						{ ID = "Metadata", RatioY = 1, Fusion = false },
+						Zone = "Right|(!Spline+!Keyframes+(Left|(!MediaPool+!Effects)))",
+						Rows = 2,
+						PaneID = "OuterRight",
+						PixelX = 420
+					},
+					RatioY = 1,
+					Columns = 3,
+					PaneID = "OuterColumns"
+				},
+				RatioX = 1,
+				Rows = 2,
+				RatioY = 1
+			},
+			TopBar = {
+				Left = { "Left", "MediaPool", "Effects", "Clips", "Nodes", "Console" },
+				Right = { "Spline", "Keyframes", "Metadata", "Inspector", "Right" }
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Interactive = {
+				Proxy = {
+					Scale = 1,
+					AutoScale = 1,
+				},
+			},
+			AutoSave = {
+				Delay = 300,
+			},
+			Views = {
+				RightView = {
+					Viewer = {
+						ScaleMode = 1,
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GL3DHistogramViewer",
+						GL3DHistogramViewer = {
+							AutoBounds = false,
+							Layout = { 15, 15, 260, 224 }
+						},
+						["3DHistogram"] = {
+							Proxy = 15,
+							DrawStyles = 1,
+						},
+						GLWaveformViewer = {
+							AutoBounds = false,
+							Layout = { 15, 15, 317, 246 }
+						}
+					},
+				},
+				LeftView = {
+					Viewer = {
+						ScaleMode = 1,
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GL3DHistogramViewer",
+						GL3DHistogramViewer = {
+							AutoBounds = false,
+							Layout = { -276, 15, -15, 217 }
+						},
+						["3DHistogram"] = {
+							Proxy = 10,
+							DrawStyles = 1,
+						},
+						GLWaveformViewer = {
+							AutoBounds = false,
+							Layout = { -414, 15, -15, 246 }
+						},
+					},
+				},
+				View1 = {
+					PrevCtrlInactiveColor = 4278255360,
+					FullScreen = false,
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					PickH = 1,
+					PrevCtrlActiveColor = 4278190335,
+					AlwaysOnTop = true,
+					PickW = 1
+				},
+				Defaults = {
+					View3D = {
+						Options = {
+							ShowUVTangentVectors = false
+						},
+						TextureDepth = "int8"
+					},
+					MaterialViewer = {
+						Options = {
+							TextureDepth = "int8"
+						},
+					},
+				},
+				View2 = {
+					PickH = 1,
+					PickW = 1,
+					AlwaysOnTop = true,
+					FullScreen = false
+				}
+			},
+			Paths = {
+				Map = {
+				},
+			},
+			FrameFormat = {
+				Name = "Ultra HD 2160",
+				Width = 3840,
+				Height = 2160,
+				GuideRatio = 1.77777777777778,
+				DepthFull = 3,
+				DepthPreview = 3,
+				DepthInteractive = 3,
+				DepthLoader = 1,
+			},
+			LastFile = "/Users/thatcher/coding/screenplays/screenplays/bingo/Screen Replacement/replaced screen.png",
+			Unsorted = {
+				GlobalEnd = 1,
+				RenderSettings = {
+					Configs = {
+						Preview = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						},
+						Final = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						}
+					},
+					PreviewConfig = "Preview",
+					CurrentConfig = "Final"
+				}
+			},
+			FlowView = {
+				Direction = 1,
+				GridSnap = true,
+				PipesOnTop = true,
+				ShowHidden = true,
+				PipeStyle = 0,
+				FullToolIndicator = false
+			},
+			QuickTime = {
+			},
+			Metadata = {
+				SubTableMode = 0
+			}
+		}
+	},
+}
+
