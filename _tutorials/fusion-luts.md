@@ -42,6 +42,7 @@ In this article, I'll describe the necessary steps to accomplish most LUT creati
     - [Change the grayscale behavior of a LUT](#change-the-grayscale-behavior-of-a-lut)
     - [Adjusting the LUT for Video Levels](#adjusting-the-lut-for-video-levels)
     - [Make an exposure compensation LUT.](#make-an-exposure-compensation-lut)
+    - [Make a Linear to Log 1D LUT](#make-a-linear-to-log-1d-lut)
 - [Conclusion](#conclusion)
 
 ---
@@ -331,6 +332,35 @@ Sometimes it's helpful to have a monitoring LUT that includes a one stop overexp
 4. ColorSpaceTransform from Linear to the camera's log curve, with no OOTF boxes checked nor tone mapping/gamut mapping.
 5. Your normal LUT or pipeline used to make the normal LUT
 6. LUTCubeAnalyzer, to save the LUT to a file somewhere.
+
+## Make a Linear to Log 1D LUT
+Unlike the other ones, this is a multi-step process. First we must identify the white point of a log to linear conversion using the following pipeline.
+1. Background node set to $$(1, 1, 1)$$.
+2. ColorSpaceTransform from the log cuve of your choice to Linear, with no forward OOTF nor tone mapping.
+
+Measure the white point and call it $$X$$. It will typically be larger than $$1.0$$. Then, make the following chain of nodes:
+1. LUTCubeCreator1D, set to the size of your choice (ideally at least $$2^{12}$$).
+2. ColorGain node, with gain set to $$X$$.
+3. ColorSpaceTransform from Linear to the log curve from before.
+4. LutCubeAnalyzer1D, to save the LUT to a file somewhere.
+
+You will then open the resulting LUT file and add the following line to the top:
+
+```
+LUT_1D_INPUT_RANGE 0.0 <X>
+```
+
+As an example, it might look like this:
+```
+LUT_1D_INPUT_RANGE 0.0 38.42093
+```
+
+If the above doesn't work, then it's probably because your software expects the official adobe tags `DOMAIN_MIN` and `DOMAIN_MAX`, rather than the above tags which are expected by Resolve. The above lines would instead look like:
+```
+DOMAIN_MIN 0.0 0.0 0.0
+DOMAIN_MAX 38.42093 38.42093 38.42093
+```
+
 
 # Conclusion
 
