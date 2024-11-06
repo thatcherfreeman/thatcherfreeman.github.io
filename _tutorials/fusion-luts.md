@@ -337,17 +337,25 @@ Sometimes it's helpful to have a monitoring LUT that includes a one stop overexp
 Unlike the other ones, this is a multi-step process. First we must identify the white point of a log to linear conversion using the following pipeline.
 1. Background node set to $$(1, 1, 1)$$.
 2. ColorSpaceTransform from the log cuve of your choice to Linear, with no forward OOTF nor tone mapping.
+3. Measure this white point and call it $$W$$. It will typically be larger than $$1.0$$.
 
-Measure the white point and call it $$X$$. It will typically be larger than $$1.0$$. Then, make the following chain of nodes:
+We will repeat the process with the black point.
+1. Background node set to $$(0, 0, 0)$$.
+2. ColorSpaceTransform from the log curve of your choice to Linear, with no forward OOTF nor tone mapping.
+3. Measure this black point and call it $$B$$. It can be negative.
+
+If you want, you can also choose arbitrary values of $$B$$ and $$W$$. I have had success choosing something like $$B = -1.0$$ and $$W = 100.0$$ for a Linear to LogC3 LUT. It may be recommendable to play with the LUT sampling when you do this.
+
+Then, make the following chain of nodes:
 1. LUTCubeCreator1D, set to the size of your choice (ideally at least $$2^{12}$$).
-2. ColorGain node, with gain set to $$X$$.
+2. ColorGain node, with Gain set to $$W$$ and lift set to $$B$$.
 3. ColorSpaceTransform from Linear to the log curve from before.
 4. LutCubeAnalyzer1D, to save the LUT to a file somewhere.
 
 You will then open the resulting LUT file and add the following line to the top:
 
 ```
-LUT_1D_INPUT_RANGE 0.0 <X>
+LUT_1D_INPUT_RANGE <B> <W>
 ```
 
 As an example, it might look like this:
