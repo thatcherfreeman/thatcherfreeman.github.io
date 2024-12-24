@@ -1,0 +1,1368 @@
+Composition {
+	CurrentTime = 0,
+	RenderRange = { 0, 0 },
+	GlobalRange = { 0, 1 },
+	CurrentID = 124,
+	HiQ = true,
+	PlaybackUpdateMode = 0,
+	StereoMode = false,
+	Version = "Fusion Studio 19.1 build 34",
+	SavedOutputs = 0,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/lut_linear/cover_photo.jpg",
+		"/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/lut_linear/cover_photo_log_to_log.jpg"
+	},
+	Tools = {
+		Loader2 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "/Users/thatcher/Movies/A003C0083_20210906004753_0001.MOV",
+					FormatID = "QuickTimeMovies",
+					Length = 1305,
+					Multiframe = true,
+					TrimIn = 0,
+					TrimOut = 1304,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 1,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 1304
+				}
+			},
+			Inputs = {
+				Depth = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, -148.5 } },
+		},
+		Instance_ColorGain1 = ColorGain {
+			SourceOp = "ColorGain1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				GainNest = Input {
+				},
+				GainRed = Input {
+					Value = 10,
+					Expression = "1/ColorGain2.GainRed"
+				},
+				LiftNest = Input {
+				},
+				GammaNest = Input {
+				},
+				SaturationNest = Input {
+				},
+				HighNest = Input {
+				},
+				MidNest = Input {
+				},
+				DarkNest = Input {
+				},
+				HueNest = Input {
+				},
+				RangesNest = Input {
+				},
+				PresetSimpleRanges = Input {
+				},
+				PresetSmoothRanges = Input {
+				},
+				Input = Input {
+					SourceOp = "ColorGain2",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 82.5 } },
+		},
+		Instance_ColorSpaceTransform1_1 = ColorSpaceTransform {
+			SourceOp = "ColorSpaceTransform1_1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				ColorSpaceTransform = Input {
+				},
+				Swap = Input {
+				},
+				ToneMapping = Input {
+				},
+				SrcLumMax = Input {
+					Disabled = true,
+				},
+				DstLumMax = Input {
+					Disabled = true,
+				},
+				GamutMapping = Input {
+				},
+				Advanced = Input {
+				},
+				Input = Input {
+					SourceOp = "Instance_ColorGain1",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 148.5 } },
+			Version = 1
+		},
+		LUTCubeCreator1D1_1_1 = Fuse.LUTCubeCreator1D {
+			Inputs = {
+				Size = Input { Value = 129, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 16.5 } },
+		},
+		Instance_ColorGain1_2 = ColorGain {
+			SourceOp = "ColorGain1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				GainNest = Input {
+				},
+				GainRed = Input {
+					Value = 10,
+					Expression = "1/ColorGain2.GainRed"
+				},
+				LiftNest = Input {
+				},
+				GammaNest = Input {
+				},
+				SaturationNest = Input {
+				},
+				HighNest = Input {
+				},
+				MidNest = Input {
+				},
+				DarkNest = Input {
+				},
+				HueNest = Input {
+				},
+				RangesNest = Input {
+				},
+				PresetSimpleRanges = Input {
+				},
+				PresetSmoothRanges = Input {
+				},
+				Input = Input {
+					SourceOp = "LUTCubeCreator1D1_1_1",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 82.5 } },
+		},
+		Instance_Instance_ColorSpaceTransform1_1_1 = ColorSpaceTransform {
+			SourceOp = "Instance_ColorSpaceTransform1_1_1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				ColorSpaceTransform = Input {
+				},
+				Swap = Input {
+				},
+				ToneMapping = Input {
+				},
+				SrcLumMax = Input {
+					Disabled = true,
+				},
+				DstLumMax = Input {
+					Disabled = true,
+				},
+				GamutMapping = Input {
+				},
+				Advanced = Input {
+				},
+				Input = Input {
+					SourceOp = "Instance_ColorGain1_2",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 115.5 } },
+			Version = 1
+		},
+		Instance_LUTCubeApply1D1_1 = Fuse.LUTCubeApply1D {
+			Inputs = {
+				Image = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+				LUTCubeImage = Input {
+					SourceOp = "Instance_Instance_ColorSpaceTransform1_1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 148.5 } },
+		},
+		MergeAdjacent1 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Instance_ColorSpaceTransform1_1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Instance_LUTCubeApply1D1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 181.5 } },
+		},
+		LUTCubeCreator1D1_1 = Fuse.LUTCubeCreator1D {
+			Inputs = {
+				Size = Input { Value = 65, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 16.5 } },
+		},
+		Instance_ColorGain1_1 = ColorGain {
+			SourceOp = "ColorGain1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				GainNest = Input {
+				},
+				GainRed = Input {
+					Value = 10,
+					Expression = "1/ColorGain2.GainRed"
+				},
+				LiftNest = Input {
+				},
+				GammaNest = Input {
+				},
+				SaturationNest = Input {
+				},
+				HighNest = Input {
+				},
+				MidNest = Input {
+				},
+				DarkNest = Input {
+				},
+				HueNest = Input {
+				},
+				RangesNest = Input {
+				},
+				PresetSimpleRanges = Input {
+				},
+				PresetSmoothRanges = Input {
+				},
+				Input = Input {
+					SourceOp = "LUTCubeCreator1D1_1",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 82.5 } },
+		},
+		Instance_ColorSpaceTransform1_1_1 = ColorSpaceTransform {
+			SourceOp = "ColorSpaceTransform1_1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				ColorSpaceTransform = Input {
+				},
+				Swap = Input {
+				},
+				ToneMapping = Input {
+				},
+				SrcLumMax = Input {
+					Disabled = true,
+				},
+				DstLumMax = Input {
+					Disabled = true,
+				},
+				GamutMapping = Input {
+				},
+				Advanced = Input {
+				},
+				Input = Input {
+					SourceOp = "Instance_ColorGain1_1",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 115.5 } },
+			Version = 1
+		},
+		Instance_LUTCubeApply1D1 = Fuse.LUTCubeApply1D {
+			SourceOp = "LUTCubeApply1D1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				ScriptEdit = Input {
+				},
+				ScriptReload = Input {
+				},
+				Image = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+				LUTCubeImage = Input {
+					SourceOp = "Instance_ColorSpaceTransform1_1_1",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 148.5 } },
+		},
+		DCTLInterpreter2 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/dwg-transforms/RCM IDTs/Z-Cam Z-Log2 to DWG.dctl", },
+				ComboBox1 = Input { Value = 1, },
+				ComboBox2 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "Scale1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 16.5 } },
+		},
+		ColorGain2 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GainRed = Input { Value = 0.1, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 49.5 } },
+		},
+		PipeRouter2 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "ColorGain2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 330, 82.5 } },
+		},
+		PipeRouter1 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "PipeRouter2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 330, 148.5 } },
+		},
+		LUTCubeCreator1D1 = Fuse.LUTCubeCreator1D {
+			Inputs = {
+				Size = Input { Value = 33, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 16.5 } },
+		},
+		ColorGain1 = ColorGain {
+			Inputs = {
+				LockRGB = Input { Value = 1, },
+				GainRed = Input {
+					Value = 10,
+					Expression = "1/ColorGain2.GainRed",
+				},
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.125, 0.75 },
+									{ 0.375, 0.25 },
+									{ 0.5, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0.5, 0 },
+									{ 0.625, 0.25 },
+									{ 0.875, 0.75 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				Input = Input {
+					SourceOp = "LUTCubeCreator1D1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 82.5 } },
+		},
+		ColorSpaceTransform1_1 = ColorSpaceTransform {
+			Inputs = {
+				OutputGamma = Input { Value = FuID { "LOGC_EI800_GAMMA" }, },
+				ToneMappingMethod = Input { Value = FuID { "TM_NONE" }, },
+				SrcLumMax = Input { Disabled = true, },
+				DstLumMax = Input { Disabled = true, },
+				Input = Input {
+					SourceOp = "ColorGain1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 115.5 } },
+			Version = 1
+		},
+		LUTCubeApply1D1 = Fuse.LUTCubeApply1D {
+			Inputs = {
+				Image = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+				LUTCubeImage = Input {
+					SourceOp = "ColorSpaceTransform1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 148.5 } },
+		},
+		MergeAdjacent1_1 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Instance_LUTCubeApply1D1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "LUTCubeApply1D1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 214.5 } },
+		},
+		MergeAdjacent2 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MergeAdjacent1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MergeAdjacent1_1",
+					Source = "Output",
+				},
+				Direction = Input { Value = 1, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 214.5 } },
+		},
+		Saver1 = Saver {
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/lut_linear/cover_photo.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "MergeAdjacent2",
+					Source = "Output",
+				},
+				["JpegFormat.Quality"] = Input { Value = 97, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 280.5 } },
+		},
+		DCTLInterpreter2_1_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/dwg-transforms/RCM IDTs/Z-Cam Z-Log2 to DWG.dctl", },
+				ComboBox1 = Input { Value = 1, },
+				ComboBox2 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "PipeRouter3",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 115.5 } },
+		},
+		Instance_ColorSpaceTransform1_1_2 = ColorSpaceTransform {
+			SourceOp = "ColorSpaceTransform1_1_1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				ColorSpaceTransform = Input {
+				},
+				Swap = Input {
+				},
+				ToneMapping = Input {
+				},
+				SrcLumMax = Input {
+					Disabled = true,
+				},
+				DstLumMax = Input {
+					Disabled = true,
+				},
+				GamutMapping = Input {
+				},
+				Advanced = Input {
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter2_1_1",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 148.5 } },
+			Version = 1
+		},
+		LUTCubeCreator1D1_1_1_1 = Fuse.LUTCubeCreator1D {
+			Inputs = {
+				Size = Input { Value = 129, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 49.5 } },
+		},
+		DCTLInterpreter2_1_1_3 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/dwg-transforms/RCM IDTs/Z-Cam Z-Log2 to DWG.dctl", },
+				ComboBox1 = Input { Value = 1, },
+				ComboBox2 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "LUTCubeCreator1D1_1_1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 115.5 } },
+		},
+		Instance_Instance_ColorSpaceTransform1_1_1_1 = ColorSpaceTransform {
+			SourceOp = "Instance_ColorSpaceTransform1_1_1_1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				ColorSpaceTransform = Input {
+				},
+				Swap = Input {
+				},
+				ToneMapping = Input {
+				},
+				SrcLumMax = Input {
+					Disabled = true,
+				},
+				DstLumMax = Input {
+					Disabled = true,
+				},
+				GamutMapping = Input {
+				},
+				Advanced = Input {
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter2_1_1_3",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 148.5 } },
+			Version = 1
+		},
+		Instance_LUTCubeApply1D1_1_1 = Fuse.LUTCubeApply1D {
+			Inputs = {
+				Image = Input {
+					SourceOp = "PipeRouter1_1",
+					Source = "Output",
+				},
+				LUTCubeImage = Input {
+					SourceOp = "Instance_Instance_ColorSpaceTransform1_1_1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 181.5 } },
+		},
+		MergeAdjacent1_2 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Instance_ColorSpaceTransform1_1_2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Instance_LUTCubeApply1D1_1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 214.5 } },
+		},
+		LUTCubeCreator1D1_1_2 = Fuse.LUTCubeCreator1D {
+			Inputs = {
+				Size = Input { Value = 65, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 49.5 } },
+		},
+		DCTLInterpreter2_1_1_2 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/dwg-transforms/RCM IDTs/Z-Cam Z-Log2 to DWG.dctl", },
+				ComboBox1 = Input { Value = 1, },
+				ComboBox2 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "LUTCubeCreator1D1_1_2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 115.5 } },
+		},
+		Instance_ColorSpaceTransform1_1_1_1 = ColorSpaceTransform {
+			SourceOp = "ColorSpaceTransform1_1_1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				ColorSpaceTransform = Input {
+				},
+				Swap = Input {
+				},
+				ToneMapping = Input {
+				},
+				SrcLumMax = Input {
+					Disabled = true,
+				},
+				DstLumMax = Input {
+					Disabled = true,
+				},
+				GamutMapping = Input {
+				},
+				Advanced = Input {
+				},
+				Input = Input {
+					SourceOp = "DCTLInterpreter2_1_1_2",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 148.5 } },
+			Version = 1
+		},
+		Instance_LUTCubeApply1D1_2 = Fuse.LUTCubeApply1D {
+			SourceOp = "LUTCubeApply1D1_1",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				ScriptEdit = Input {
+				},
+				ScriptReload = Input {
+				},
+				Image = Input {
+					SourceOp = "PipeRouter1_1",
+					Source = "Output",
+				},
+				LUTCubeImage = Input {
+					SourceOp = "Instance_ColorSpaceTransform1_1_1_1",
+					Source = "Output",
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 181.5 } },
+		},
+		Crop1 = Crop {
+			Inputs = {
+				XOffset = Input { Value = 1048, },
+				YOffset = Input { Value = 80, },
+				XSize = Input { Value = 2000, },
+				YSize = Input { Value = 2000, },
+				KeepCentered = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "Loader2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, -115.5 } },
+		},
+		Scale1 = Scale {
+			Inputs = {
+				XSize = Input { Value = 0.5, },
+				HiQOnly = Input { Value = 0, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				Input = Input {
+					SourceOp = "Crop1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, -82.5 } },
+		},
+		PipeRouter3 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "Scale1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 1045, 82.5 } },
+		},
+		PipeRouter2_1 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "PipeRouter3",
+					Source = "Output",
+				}
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 1155, 115.5 } },
+		},
+		PipeRouter1_1 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "PipeRouter2_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 1100, 181.5 } },
+		},
+		LUTCubeCreator1D1_2 = Fuse.LUTCubeCreator1D {
+			Inputs = {
+				Size = Input { Value = 33, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1210, 49.5 } },
+		},
+		DCTLInterpreter2_1_1_1 = Fuse.DCTLInterpreter {
+			Inputs = {
+				DCTLFile = Input { Value = "/Users/thatcher/coding/dwg-transforms/RCM IDTs/Z-Cam Z-Log2 to DWG.dctl", },
+				ComboBox1 = Input { Value = 1, },
+				ComboBox2 = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "LUTCubeCreator1D1_2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1210, 115.5 } },
+		},
+		ColorSpaceTransform1_1_1 = ColorSpaceTransform {
+			Inputs = {
+				OutputGamma = Input { Value = FuID { "LOGC_EI800_GAMMA" }, },
+				ToneMappingMethod = Input { Value = FuID { "TM_NONE" }, },
+				SrcLumMax = Input { Disabled = true, },
+				DstLumMax = Input { Disabled = true, },
+				Input = Input {
+					SourceOp = "DCTLInterpreter2_1_1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1210, 148.5 } },
+			Version = 1
+		},
+		LUTCubeApply1D1_1 = Fuse.LUTCubeApply1D {
+			Inputs = {
+				Image = Input {
+					SourceOp = "PipeRouter1_1",
+					Source = "Output",
+				},
+				LUTCubeImage = Input {
+					SourceOp = "ColorSpaceTransform1_1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1210, 181.5 } },
+		},
+		MergeAdjacent1_1_1 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Instance_LUTCubeApply1D1_2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "LUTCubeApply1D1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 247.5 } },
+		},
+		MergeAdjacent2_1 = Fuse.MergeAdjacent {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MergeAdjacent1_2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MergeAdjacent1_1_1",
+					Source = "Output",
+				},
+				Direction = Input { Value = 1, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 247.5 } },
+		},
+		Saver1_1 = Saver {
+			CtrlWZoom = false,
+			Inputs = {
+				["OpenEXRFormat.ZipCompressionLevel"] = Input { Value = 4, },
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "/Users/thatcher/coding/thatcherfreeman.github.io/images/posts/lut_linear/cover_photo_log_to_log.jpg",
+						FormatID = "JpegFormat",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 1,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "JpegFormat" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "MergeAdjacent2_1",
+					Source = "Output",
+				},
+				["JpegFormat.Quality"] = Input { Value = 97, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 313.5 } },
+		}
+	},
+	Frames = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			PresetName = "Default",
+			Left = 0,
+			Top = 27,
+			Width = 1800,
+			Height = 1047,
+			ZoneInfo = {
+				["!Right"] = {
+				},
+				["!Left"] = {
+				},
+				AuxLeft = { Expanded = true },
+				Right = { Expanded = true, },
+				Left = { Expanded = false, },
+				AuxRight = { Expanded = true }
+			},
+			ViewInfo = {
+				Viewer1 = { Show = true, RatioY = 0.01, RatioX = 1, },
+				InnerLeft = {
+				},
+				MainSplit = {
+					RatioX = 100,
+					RatioY = 1.0010460251046,
+				},
+				CenterSplit = {
+					RatioX = 1,
+					RatioY = 100,
+				},
+				Viewer2 = { Show = true, RatioY = 0.01, RatioX = 1, },
+				Comments = { Show = false },
+				Time = { Show = true, RatioX = 100, },
+				InnerColumns = {
+					RatioX = 100,
+					RatioY = 1.9989539748954,
+				},
+				Keyframes = { Show = false, },
+				LayoutStrip = { Show = true, RatioX = 100, },
+				Inspector = { Show = true, RatioY = 1, RatioX = 100, },
+				ActionStrip = { Show = true, RatioX = 100, },
+				InnerRight = {
+				},
+				OuterColumns = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Effects = { Show = false, },
+				Clips = { Show = false, },
+				Metadata = { Show = false, },
+				OuterLeft = {
+				},
+				ViewerSplit = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Nodes = { Show = true, RatioY = 100, RatioX = 1, },
+				OuterRight = {
+					RatioY = 100,
+					PixelX = 420,
+				},
+				MediaPool = { Show = false, },
+				Spline = { Show = false, }
+			},
+			Views = ordered() {
+				Effects = MultiView {
+					Active = "EffectView",
+					ViewList = ordered() {
+						EffectView = "EffectView"
+					},
+				},
+				Nodes = MultiView {
+					Active = "FlowView",
+					ViewList = ordered() {
+						FlowView = "FlowView"
+					},
+					FlowView = FlowView {
+						Flags = {
+							Navigator = true,
+							AutoHideNavigator = true,
+							GridSnap = true,
+							PipesAlways = true,
+							ShowHidden = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Vertical",
+						PipeStyle = "Orthogonal",
+						RootScale = 0.500936,
+						RootOffset = { -222.334, -31.6417 }
+					}
+				},
+				Keyframes = MultiView {
+					Active = "TimelineView",
+					ViewList = ordered() {
+						TimelineView = "TimelineView"
+					},
+					TimelineView = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 232, Bottom = 320 },
+							ScaleX = 0.00214424951267057,
+							OffsetX = -0.0514619883040936,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "frame"
+						},
+						Spreadsheet = { LeftPos = 232, Visible = false }
+					}
+				},
+				Spline = MultiView {
+					Active = "SplineView",
+					ViewList = ordered() {
+						SplineView = "SplineEditorView"
+					},
+					SplineView = SplineEditorView {
+						LeftPos = 264,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = -3.4,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					}
+				},
+				Inspector = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Viewer1 = MultiView {
+					Active = "LeftView",
+					ViewList = ordered() {
+						LeftView = "PreviewContainer"
+					},
+				},
+				Viewer2 = MultiView {
+					Active = "RightView",
+					ViewList = ordered() {
+						RightView = "PreviewContainer"
+					},
+				},
+				Time = "TimeView",
+				ActionStrip = "ActionStripView",
+				LayoutStrip = "LayoutStripView"
+			},
+			Layout = {
+				{ ID = "LayoutStrip", FixedY = 36, Resolve = false, Flat = true },
+				{
+					{
+						{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+						{ ID = "Effects", RatioX = 1 },
+						Zone = "Left",
+						Rows = 2,
+						PaneID = "OuterLeft",
+						PixelX = 420
+					},
+					{
+						{
+							{
+								{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+								{ ID = "Effects", RatioX = 1 },
+								PaneID = "InnerLeft",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Left"
+							},
+							{
+								{
+									{ ID = "Viewer1", RatioY = 0.01, RatioX = 1 },
+									{ ID = "Viewer2", RatioX = 1 },
+									RatioY = 1,
+									Columns = 2,
+									PaneID = "ViewerSplit"
+								},
+								{ ID = "Time", FixedY = 83, Flat = true },
+								RatioX = 1,
+								Rows = 2
+							},
+							{
+								{ ID = "Inspector", RatioY = 1 },
+								{ ID = "Metadata", RatioY = 1, Fusion = false },
+								PaneID = "InnerRight",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Right"
+							},
+							RatioY = 2,
+							Columns = 3,
+							PaneID = "InnerColumns"
+						},
+						{ ID = "ActionStrip", FixedY = 50, Flat = true },
+						{
+							{ ID = "Nodes", RatioX = 1 },
+							{ ID = "Spline", RatioX = 1 },
+							{ ID = "Keyframes", RatioX = 1 },
+							RatioY = 1,
+							Columns = 3,
+							PaneID = "MainSplit"
+						},
+						{ Fusion = false, ID = "Clips", LARGE_FixedY = 160, MEDIUM_FixedY = 138, SMALL_FixedY = 110 },
+						RatioX = 1,
+						Rows = 4,
+						PaneID = "CenterSplit"
+					},
+					{
+						{ ID = "Inspector", RatioY = 1 },
+						{ ID = "Metadata", RatioY = 1, Fusion = false },
+						Zone = "Right",
+						Rows = 2,
+						PaneID = "OuterRight",
+						PixelX = 420
+					},
+					RatioY = 1,
+					Columns = 3,
+					PaneID = "OuterColumns"
+				},
+				RatioX = 1,
+				Rows = 2,
+				RatioY = 1
+			},
+			TopBar = {
+				Left = { "Left", "MediaPool", "Effects", "Clips", "Nodes", "Console" },
+				Right = { "Spline", "Keyframes", "Metadata", "Inspector", "Right" }
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Interactive = {
+				Proxy = {
+					Scale = 1,
+					AutoScale = 1,
+				},
+			},
+			AutoSave = {
+				Delay = 300,
+			},
+			Views = {
+				RightView = {
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+				},
+				LeftView = {
+					Viewer = {
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							ScaleMode = 0,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GLWaveformViewer",
+						GLWaveformViewer = {
+							AutoBounds = false,
+							Layout = { -499, 15, -15, 194 }
+						},
+						GLHistogramViewer = {
+							AutoBounds = true
+						}
+					},
+				},
+				View1 = {
+					PrevCtrlInactiveColor = 4278255360,
+					FullScreen = false,
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					PickH = 1,
+					PrevCtrlActiveColor = 4278190335,
+					AlwaysOnTop = true,
+					PickW = 1
+				},
+				Defaults = {
+					View3D = {
+						Options = {
+							ShowUVTangentVectors = false
+						},
+						TextureDepth = "int8"
+					},
+					MaterialViewer = {
+						Options = {
+							TextureDepth = "int8"
+						},
+					},
+				},
+				View2 = {
+					PickH = 1,
+					AlwaysOnTop = true,
+					FullScreen = false,
+					PickW = 1
+				}
+			},
+			Paths = {
+				Map = {
+				},
+			},
+			FrameFormat = {
+				Name = "Ultra HD 2160",
+				Width = 3840,
+				Height = 2160,
+				GuideRatio = 1.77777777777778,
+				DepthFull = 3,
+				DepthPreview = 3,
+				DepthInteractive = 3,
+				DepthLoader = 1,
+			},
+			LastFile = "/Users/thatcher/coding/utility-dctls/Operations/Addition Function.dctl",
+			Unsorted = {
+				GlobalEnd = 1,
+				RenderSettings = {
+					Configs = {
+						Preview = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						},
+						Final = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						}
+					},
+					PreviewConfig = "Preview",
+					CurrentConfig = "Final"
+				}
+			},
+			FlowView = {
+				Direction = 1,
+				GridSnap = true,
+				PipesOnTop = true,
+				ShowHidden = true,
+				PipeStyle = 0,
+				FullToolIndicator = false
+			},
+			QuickTime = {
+			},
+		}
+	},
+}
+

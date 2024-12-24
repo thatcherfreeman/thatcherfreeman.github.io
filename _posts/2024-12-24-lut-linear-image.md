@@ -1,17 +1,25 @@
 ---
 title: Risks of applying LUTs to Linear State Images
 subtitle: Many functions are designed for linear state images, but why should we not bake these functions into LUTs?
-date: 2024-12-21 00:00:00
+date: 2024-12-24 00:00:00
 description: A comprehensive list of the risks associated with LUTs that expect a linear input.
 featured_image: /images/posts/lut_linear/cover_photo0000.jpg
 tags: LUT linear log sampling resolution dynamic range interpolation error logc3 table entries samples
 ---
 
-When developing color grading tools, it's common to engineer a function that takes a linear state image as input. It can be tempting to pre-compute these operations and bake them into a 33 or 65 point LUT, but this is actually a mistake - the application of the LUT may substantially differ from the original function, even if all the samples within the LUT are accurate.
+When developing color grading tools, it's common to engineer a function that takes a linear state image as input. It can be tempting to pre-compute these operations and bake them into a 33 or 65 point LUT to take advantage of the speedy application and cross platform nature of LUTs, but in this process is a mistake - the application of the LUT may substantially differ from the original function, even if all the samples within the LUT are accurate.
 
 ![](/images/posts/lut_linear/cover_photo0000.jpg)
 
 *Cover photo: (Top Left) Image when encoded as Arri LogC3, this is the target that the others should aim to match. (Top Right) Same image, but the Linear to LogC3 function is a 129 point 1D LUT with a `DOMAIN_MAX` of 10. (Bottom Left) Linear to LogC3 function is a 65 point 1D LUT. (Bottom Right) Linear to LogC3 function is a 33 point 1D LUT.*
+
+The above image illustrates an image that I've transformed from ZLog2 to Arri LogC3, and three instances of differently sized LUTs used to capture the Linear to LogC3 portion of the log-to-linear-to-log pipeline. Evidently, the quality of this transform is very sensitive to the size of the LUT.
+
+![](/images/posts/lut_linear/cover_photo_log_to_log0000.jpg)
+
+In the above example, the same LUT resolutions are used, but instead of using the LUT to capture the Linear to LogC3 function, the LUT is capturing the entire Z-Log2 to Arri LogC3 pipeline. Clearly, this result is much less sensitive to the LUT size.
+
+By the end of this article, you should understand why the LUTs behave so poorly when designed to manipulate Linear state images.
 
 ---
 
