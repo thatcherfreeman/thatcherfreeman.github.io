@@ -153,6 +153,6 @@ We can see that the error in the shadows of the Log vs Code Value plot is reduce
 
 # Conclusion
 
-Let's refer back to the cover photo of this post. Ultimately, 1D or 3D LUTs applied to a linear image will have reduced sampling resolution as the input code value falls many stops below the LUT's `DOMAIN_MAX` value. When the nearest samples are farther away (in log space), the interpolation error is increased. This is a result of the uniform spacing of the LUT's samples, which results in more samples in stops near `DOMAIN_MAX` and fewer in the shadow stops, when we would realistically want every stop of light to have a similar quantity of samples.
+Ultimately, 1D or 3D LUTs applied to a linear image will have reduced sampling resolution as the input code value falls many stops below the LUT's `DOMAIN_MAX` value. When the nearest samples are farther away, the interpolation error is increased. This is a result of the uniform spacing of the LUT's samples, which results in more samples in stops near `DOMAIN_MAX` and fewer in the shadow stops, when we would realistically want every stop of light to have a similar quantity of samples.
 
 To attain this objective of making each stop of light have a similar quantity of samples, I recommend that one builds LUTs to take a log input, so that the uniform spacing of the LUT's entries will all be spaced a similar amount of stops apart.
