@@ -7,7 +7,9 @@ featured_image: /images/posts/dynamic_range/dynamic_range_thumb0000.jpg
 tags: dynamic range bit log linear quantization stochastic rounding fixed unsigned integer snr
 ---
 
-![](/images/posts/dynamic_range/dynamic_range_header0000.jpg)
+<div class="gallery" data-columns="1">
+	<img src="/images/posts/dynamic_range/dynamic_range_header0000.jpg">
+</div>
 
 # The big question
 I'm sure you've seen the claim online that a camera with a 14-bit RAW cannot have more than 14 stops of dynamic range. The above graphic consists of a synthetic stop chart quantized to just 4 bits in linear, then SRGB encoded for your display. It clearly shows more than 4 stops of dynamic range, so let's break it down.
@@ -45,7 +47,9 @@ In its simplest form, dynamic range represents the ratio between the largest sig
 ## What is bit depth?
 An image can be represented by a number for each channel at each pixel. As computers have limited memory, each of these numbers is held in memory with a fixed quantity of bits. You can think of it like the odometer in an older car (Image courtesy of Wikipedia):
 
-![](/images/posts/dynamic_range/Jeep_Odometer.jpg)
+<div class="gallery" data-columns="1">
+	<img src="/images/posts/dynamic_range/Jeep_Odometer.jpg">
+</div>
 
 When there are a limited number of digits, there are a finite quantity of numbers that can be represented. In the case of $$N$$ digits, there are $$10^N$$ different numbers you can encode; in the above odometer, there are 6 digits and can represent the 1,000,000 values from `000000` to `999999`.
 
@@ -68,7 +72,9 @@ Observe that because doubling of the photographed light means that the the code 
 
 Below is a screenshot of a waveform for a linear chart depicting chips in one-stop increments below 100%.
 
-![](/images/posts/dynamic_range/linear_waveform.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/posts/dynamic_range/linear_waveform.png">
+</div>
 
 **Log encodings** are those where a logarithm function has been applied to the Linear signal, often with some additional scaling. The function is often piece-wise, meaning that the behavior in the shadows differs from that of the highlights. For reference, the ACEScct encoding (from linear) is reproduced below and has this construction:
 
@@ -89,7 +95,9 @@ float lin_to_ACEScct(float in)
 
 The below waveform shows how one-stop increments are encoded in ACEScct. Note that the number of code values between each stop is roughly constant, particularly in the highlights (`in > X_BRK`).
 
-![](/images/posts/dynamic_range/acescct_waveform.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/posts/dynamic_range/acescct_waveform.png">
+</div>
 
 ## Quantization methodologies
 **Quantization** refers to the process of reducing the precision of a number. In doing so, the difference between the original number and the new, precision-reduced number represents the quantization error and is a source of noise.
@@ -156,7 +164,9 @@ You can explore this calculation here: [Desmos](https://www.desmos.com/calculato
 
 The SNR of $$x$$ is reproduced in the below plot, where $$x$$ is on the x-axis and SNR is on the y-axis:
 
-![](/images/posts/dynamic_range/one_bit_snr.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/posts/dynamic_range/one_bit_snr.png">
+</div>
 
 You can see that the SNR increases with $$X$$, and due to $$\text{var}(x)$$ approaching zero as at $$x \rightarrow 1$$, it approaches infinity. Most importantly, the accepted threshold of $$\text{SNR} = 2.0$$ (as well as any other SNR threshold) exists with $$x < 1.0$$, so the denominator "smallest distinguishable signal" in the dynamic range calculation can be less than 1.
 

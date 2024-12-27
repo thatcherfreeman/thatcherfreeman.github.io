@@ -9,13 +9,17 @@ tags: LUT linear log sampling resolution dynamic range interpolation error logc3
 
 When developing color grading tools, it's common to engineer a function that takes a linear state image as input. It can be tempting to pre-compute these operations and bake them into a 33 or 65 point LUT to take advantage of the speedy application and cross platform nature of LUTs, but in this process is a mistake - the application of the LUT may substantially differ from the original function, even if all the samples within the LUT are accurate.
 
-![](/images/posts/lut_linear/cover_photo0000.jpg)
+<div class="gallery" data-columns="1">
+	<img src="/images/posts/lut_linear/cover_photo0000.jpg">
+</div>
 
 *Cover photo: (Top Left) Image when encoded as Arri LogC3, this is the target that the others should aim to match. (Top Right) Same image, but the Linear to LogC3 function is a 129 point 1D LUT with a `DOMAIN_MAX` of 10. (Bottom Left) Linear to LogC3 function is a 65 point 1D LUT. (Bottom Right) Linear to LogC3 function is a 33 point 1D LUT.*
 
 The above image illustrates an image that I've transformed from ZLog2 to Arri LogC3, and three instances of differently sized LUTs used to capture the Linear to LogC3 portion of the log-to-linear-to-log pipeline. Evidently, the quality of this transform is very sensitive to the size of the LUT.
 
-![](/images/posts/lut_linear/cover_photo_log_to_log0000.jpg)
+<div class="gallery" data-columns="1">
+	<img src="/images/posts/lut_linear/cover_photo_log_to_log0000.jpg">
+</div>
 
 In the above example, the same LUT resolutions are used, but instead of using the LUT to capture the Linear to LogC3 function, the LUT is capturing the entire Z-Log2 to Arri LogC3 pipeline. Clearly, this result is much less sensitive to the LUT size.
 
@@ -136,14 +140,15 @@ Clearly, using a log encoding that is carefully selected to have enough highligh
 
 Suppose we want to bake the Linear Scene Reflectance to Arri LogC3 function into a 1D LUT. If we want to cover the entire range of LogC3, we would then need to ensure that our `DOMAIN_MAX` is set to about 55, which maps to 1.0 in LogC3. I will deliberately use a 9 point LUT to make it so that the nature of the errors is visually obvious in the chart. A standard 9 point Linear to LogC3 1D LUT would look as below:
 
-<!-- ![](/images/posts/lut_linear/plot_lut_vs_gt_size_9_domain_max_55.png) -->
 <div class="gallery" data-columns="1">
 	<img src="/images/posts/lut_linear/plot_lut_vs_gt_size_9_domain_max_55.png">
 </div>
 
 In the above graph, the samples in the LUT are placed uniformly with respect to the Linear code values. Each vertical stripe is one stop wide. Note that when the Linear to LogC3 curve is roughly linear between two points, the error is small. When the curvature is large, there is a large gap between the interpolated value and the ground truth function. Also note that most of the stops of dynamic range in this plot lie between the 0 and 5 marks. If we instead log scale the x-axis so that the shadows aren't all crunched up on the left and so that each stop of light have a fixed width, we get the below plot:
 
-![](/images/posts/lut_linear/plot_lut_vs_gt_size_9_domain_max_55_log.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/posts/lut_linear/plot_lut_vs_gt_size_9_domain_max_55_log.png">
+</div>
 
 It should be clear that the majority of the LUT samples lie within the top three stops. This means that if an input code value is in the shadows, then the nearest entries in the LUT are far away and therefore the interpolation error is large, resulting in a big gap between the two curves.
 

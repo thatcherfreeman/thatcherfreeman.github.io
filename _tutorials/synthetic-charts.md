@@ -7,7 +7,9 @@ featured_image: /images/tutorials/synthetic-charts/thumbnail0000.jpg
 tags: gradient smoothness rgb chips chart lut kink fold crease edge artifact benchmark evaluation
 ---
 
-![](/images/tutorials/synthetic-charts/thumbnail0000.jpg)
+<div class="gallery" data-columns="1">
+	<img src="/images/tutorials/synthetic-charts/thumbnail0000.jpg">
+</div>
 
 When deciding which color grading tools are safe or problematic, there are generally three approaches:
 - **The Experimentalist**: Evaluate the tool on many images and play with the parameters
@@ -64,15 +66,21 @@ Some color charts generate code values that have certain known relationships to 
 
 The first synthetic chart most people interact with is a linear ramp, that goes from $$(0, 0, 0)$$ on the left to $$(1, 1, 1)$$ on the right, with the code value being determined solely by the X-coordinate in the frame.
 
-![](/images/tutorials/synthetic-charts/gray_ramp.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/tutorials/synthetic-charts/gray_ramp.png">
+</div>
 
 The main use-case of this sort of chart is to identify the set of 1D curves that would reproduce some operation's behavior on achromatic colors.
 
-![](/images/tutorials/synthetic-charts/gray_ramp_waveform.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/tutorials/synthetic-charts/gray_ramp_waveform.png">
+</div>
 
 While this chart is useful for understanding what a LUT or other tool is doing, it's not necessarily useful in a scene-referred context where we want to understand the behavior of a tool for increasing stops of light. That's why I made (with heavy inspiration from a chart demonstrated by Walter Volpatto and another by Cullen Kelly) an exposure chart to improve visibility on this. This chart generates swatches where each one's code value is double the previous, representing a one-stop increase in exposure in linear light. As a result, the chart should be interpreted as scene linear code values and be used as such. This means you may want to transform from this scene linear space to a log encoding if that is what is expected by the tool or pipeline you're going to test, downstream.
 
-![](/images/tutorials/synthetic-charts/exposure_chart.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/tutorials/synthetic-charts/exposure_chart.png">
+</div>
 
 # Smoothness Charts
 When developing tools, in addition to making sure the tool is useful on real photography, I also ensure that it behaves well on the synthetic charts. As in the example towards the start of the article, the goal is that smooth contours and gradients remain smoothly shaped after the operations in question.
@@ -80,14 +88,18 @@ When developing tools, in addition to making sure the tool is useful on real pho
 ## Gradient Smoothness Chart
 The first chart to cover generates straight lines on a single plane. With the default parameters on the left, all lines connect pairs of complementary colors, in one-stop (2x) increments. With the Continuous Mode set to "Continuous Exp" on the right, all lines start from black.
 
-![](/images/tutorials/synthetic-charts/gradientsmoothnesschart.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/tutorials/synthetic-charts/gradientsmoothnesschart.png">
+</div>
 
 These gradients are somewhat physically plausible because digital photography of out-of-focus colors, motion blur, and sheen often contain gradients that are a straight line in the 3D Histogram, when viewed in linear. The synthetic chart should be considered scene linear, and you should transform to your working log encoding if needed.
 
 ## RGB Chips Chart
 This chart generates a hue sweep for a given saturation in either HSV or Spherical color models, in one-stop (2x) increments. When drawn in spherical, the hue sweep traces a circle in the 3D histogram as shown on the left. When set to "Continuous Exp", similarly to the Gradient Smoothness Chart, we generate an exposure sweep of a single hue/saturation for many hues. This chart should be considered a linear image, and is useful in identifying how some hues have skewed or collapsed together though some operation.
 
-![](/images/tutorials/synthetic-charts/rgbchips.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/tutorials/synthetic-charts/rgbchips.png">
+</div>
 
 When generating values in HSV mode, at a full saturation, this tool will sample at the outer bounds of the assumed primaries. This may be useful to determine if your pipeline is clipping any information or pushes these nonnegative code values into the negatives.
 
@@ -95,7 +107,9 @@ When generating values in HSV mode, at a full saturation, this tool will sample 
 ## Grid Chart
 This chart is useful for evaluating certain spatial tools, like blur kernels. It simply generates gridlines or dots with a code value of 0.0 or 1.0. The top half illustrates the modes of the chart (dots vs grid) and the bottom half is an example of a blur being applied to the charts.
 
-![](/images/tutorials/synthetic-charts/gridchart.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/tutorials/synthetic-charts/gridchart.png">
+</div>
 
 For the bottom two charts, typically lens blur effects should be applied in linear so I treated the synthetic chart as a linear image, applied the blur, and then a gamma 2.2 function for the display. Generally with this chart, a challenge is for the blurred areas to not appear aliased.
 
@@ -111,7 +125,9 @@ We can use synthetic charts to identify chroma subsampling in a pipeline. The be
 ## Frequency Chart
 This chart draws sinusoids at different frequencies so that we can detect issues caused by resizing artifacts or to test MTF tools.
 
-![](/images/tutorials/synthetic-charts/frequencychart0000.png)
+<div class="gallery" data-columns="1">
+	<img src="/images/tutorials/synthetic-charts/frequencychart0000.png">
+</div>
 
 # What else is there?
 

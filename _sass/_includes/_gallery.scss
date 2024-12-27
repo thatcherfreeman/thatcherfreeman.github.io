@@ -43,7 +43,7 @@
 	.gallery__wrap {
 
 	}
-	
+
 	.gallery__item {
 
 	}
@@ -94,16 +94,23 @@
 		margin-left: -$grid-spacing/2;
 		margin-right: -$grid-spacing/2;
 	}
-	
+
 	.gallery__item {
 		float: left;
-		width: 50%;
+		width: 100%;
 		padding: $grid-spacing/2;
 	}
 
 	.gallery__item__link {
 		display: block;
 		cursor: zoom-in;
+	}
+
+	&[data-columns="2"] {
+
+		.gallery__item {
+			width: 50%;
+		}
 	}
 
 	&[data-columns="3"] {
